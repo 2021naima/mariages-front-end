@@ -41,7 +41,7 @@ const Accueil= () => {
           
                   <main id="layoutMain">
                     
-                        <DashboardNav/>
+                      
                              
                     <div id="toolsHeading" className="app-tools-heading dash-hero" style={{backgroundColor: ''}}>
                       <div id="photoLoading" className="dash-hero-wrapper wrapper">

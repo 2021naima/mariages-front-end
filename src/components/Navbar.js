@@ -20,7 +20,7 @@ export default function Navbar() {
                         <li className="layoutNavMenu__header">
                           <i className="svgIcon svgIcon__close layoutNavMenu__itemClose app-header-menu-toggle"><svg viewBox="0 0 26 26"><path d="M12.983 10.862L23.405.439l2.122 2.122-10.423 10.422 10.423 10.422-2.122 2.122-10.422-10.423L2.561 25.527.439 23.405l10.423-10.422L.439 2.561 2.561.439l10.422 10.423z" fillRule="nonzero" /></svg></i>      </li>
                         <li className="layoutNavMenu__item app-header-menu-item-openSection layoutNavMenu__item--my_wedding ">
-                          <a href="/MonMariage" className="layoutNavMenu__anchor app-header-menu-itemAnchor app-analytics-track-event-click " data-tracking-section="header" data-tracking-category="Navigation" data-tracking-category-authed={1} data-tracking-dt="tools">
+                          <a href="/accueil" className="layoutNavMenu__anchor app-header-menu-itemAnchor app-analytics-track-event-click " data-tracking-section="header" data-tracking-category="Navigation" data-tracking-category-authed={1} data-tracking-dt="tools">
                             Mon&nbsp;mariage              </a>
                           <i className="svgIcon svgIcon__angleRightBlood layoutNavMenu__anchorArrow"><svg viewBox="0 0 582 998"><path d="M0 83c0 8.7 3.3 16.3 10 23l393 393L10 892c-6.7 6.7-10 14.3-10 23s3.3 16.3 10 23l50 50c6.7 6.7 14.3 10 23 10s16.3-3.3 23-10l466-466c6.7-6.7 10-14.3 10-23s-3.3-16.3-10-23L106 10C99.3 3.3 91.7 0 83 0S66.7 3.3 60 10L10 60C3.3 66.7 0 74.3 0 83z" /></svg></i>
                           <div className="layoutNavMenuTab app-header-menu-itemDropdown">
@@ -798,6 +798,6 @@ export default function Navbar() {
                     </div>
                   </header>
                   </div>
-                  <Outlet/>
+          
       </div>
     )}

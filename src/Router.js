@@ -30,7 +30,7 @@ function Router() {
         <Route path="/" element={<Accueil />} />
         <Route path="/DashNav" element={<DashboardNav />} />
           <Route path="/Reception" element={<Reception />} />
-          <Route path="/MonMariage" element={<Accueil />} />
+          <Route path="/accueil" element={<Accueil />} />
           <Route path="/PrestatairesDash" element={<PrestatairesDash />} />
           <Route path="/taches" element={<Taches />} />
           <Route path="/Invites" element={<Invites />} />
