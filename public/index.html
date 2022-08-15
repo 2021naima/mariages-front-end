@@ -24,6 +24,22 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <link
+      rel="stylesheet"
+      href="https://www.mariages.net/css/css-symfnw-FR48-1-20220810-012_www_m_-phoenix/base.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.mariages.net/css/css-symfnw-FR48-1-20220810-012_www_m_-migrate/migrate,phoenix/landings_dash_user,phoenix/tools,phoenix/sprite_set_tools_navigation.css"
+    />
+
+    <link rel="stylesheet" href="https://www.mariages.net/css/css-symfnw-FR48-1-20220811-002_www_m_-phoenix/base.css">
+    <link rel="stylesheet" href="https://www.mariages.net/css/css-symfnw-FR48-1-20220811-002_www_m_-lib/ui_dash_lightness/jquery_dash_ui_dash_complete.min,migrate/migrate,phoenix/landings_dash_user,phoenix/tools,phoenix/sprite_set_tools_navigation.css">
+
+    <link rel="stylesheet" href="https://www.mariages.net/builds/desktop/css/symfnw-FR48-1-20220811-002_www_m_/WebBundleResponsiveMarketplaceListingBodas.css">
+    <link rel="stylesheet" href="https://www.mariages.net/builds/desktop/css/symfnw-FR48-1-20220811-002_www_m_/WebBundleResponsiveMarketplaceListingBodas.css">
+    <link rel="stylesheet" href="https://www.mariages.net/css/css-symfnw-FR48-1-20220811-004_www_m_-phoenix/base.css">
+    <link rel="stylesheet" href="https://www.mariages.net/css/css-symfnw-FR48-1-20220811-004_www_m_-migrate/migrate,phoenix/community,phoenix/sprite_set_community_rank,phoenix/sprite_set_community_group.css">
     <title>React App</title>
   </head>
   <body>
@@ -39,5 +55,1713 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script
+      src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+      data-language="fr-FR"
+      data-domain-script="1de663a5-ef96-421c-bffe-2f0cc8586eb4"
+      data-ignore-ga="true"
+      defer=""
+    ></script>
+    <script>
+      var isCountryCookiesActiveByDefault = false,
+        CONSENT_ANALYTICS_GROUP = 'C0002',
+        CONSENT_PERSONALIZATION_GROUP = 'C0003',
+        CONSENT_TARGETED_ADVERTISING_GROUP = 'C0004',
+        CONSENT_SOCIAL_MEDIA_GROUP = 'C0005',
+        cookieConsentContent = '',
+        hideCookieConsentLayer = '',
+        OptanonAlertBoxClosed = ''
+      hideCookieConsentLayer = getCookie('hideCookieConsentLayer')
+      OptanonAlertBoxClosed = getCookie('OptanonAlertBoxClosed')
+      if (hideCookieConsentLayer === '1' || Boolean(OptanonAlertBoxClosed)) {
+        cookieConsentContent = queryStringToJSON(
+          getCookie('OptanonConsent') || '',
+        )
+      }
+      function getCookie(e) {
+        var o = document.cookie.match('(^|;)\\s*' + e + '\\s*=\\s*([^;]+)')
+        return o ? unescape(o.pop()) : null
+      }
+      function queryStringToJSON(e) {
+        var o = e.split('&'),
+          t = {}
+        return (
+          o.forEach(function (e) {
+            ;(e = e.split('=')), (t[e[0]] = decodeURIComponent(e[1] || ''))
+          }),
+          JSON.parse(JSON.stringify(t))
+        )
+      }
+      function isCookieGroupAllowed(e) {
+        var o = cookieConsentContent.groups
+        if ('string' != typeof o) {
+          if (
+            !isCountryCookiesActiveByDefault &&
+            e === CONSENT_ANALYTICS_GROUP &&
+            getCookie('hideCookieConsentLayer') === '1'
+          ) {
+            return true
+          }
+          return isCountryCookiesActiveByDefault
+        }
+        for (var t = o.split(','), n = 0; n < t.length; n++)
+          if (t[n].indexOf(e, 0) >= 0) return '1' === t[n].split(':')[1]
+        return !1
+      }
+      function userHasAcceptedTheCookies() {
+        var e = document.getElementsByTagName('body')[0],
+          o = document.createEvent('HTMLEvents')
+        ;(cookieConsentContent = queryStringToJSON(
+          getCookie('OptanonConsent') || '',
+        )),
+          !0 === isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) &&
+            (o.initEvent('analyticsCookiesHasBeenAccepted', !0, !1),
+            e.dispatchEvent(o)),
+          !0 === isCookieGroupAllowed(CONSENT_PERSONALIZATION_GROUP) &&
+            (o.initEvent('personalizationCookiesHasBeenAccepted', !0, !1),
+            e.dispatchEvent(o)),
+          !0 === isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) &&
+            (o.initEvent('targetedAdvertisingCookiesHasBeenAccepted', !0, !1),
+            e.dispatchEvent(o)),
+          !0 === isCookieGroupAllowed(CONSENT_SOCIAL_MEDIA_GROUP) &&
+            (o.initEvent(
+              'socialMediaAdvertisingCookiesHasBeenAccepted',
+              !0,
+              !1,
+            ),
+            e.dispatchEvent(o))
+      }
+    </script>
+    <script>
+      function CMP() {
+        var body = document.getElementsByTagName('body')[0]
+        var event = document.createEvent('HTMLEvents')
+        var callbackIAB = (tcData, success) => {
+          if (
+            success &&
+            (tcData.eventStatus === 'tcloaded' ||
+              tcData.eventStatus === 'useractioncomplete')
+          ) {
+            window.__tcfapi('removeEventListener', 2, () => {}, callbackIAB)
+            if (
+              (typeof window.Optanon !== 'undefined' &&
+                !window.Optanon.GetDomainData().IsIABEnabled) ||
+              (tcData.gdprApplies &&
+                typeof window.Optanon !== 'undefined' &&
+                window.Optanon.GetDomainData().IsIABEnabled &&
+                getCookie('OptanonAlertBoxClosed'))
+            ) {
+              userHasAcceptedTheCookies()
+            }
+            if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) !== true) {
+              event.initEvent('analyticsCookiesHasBeenDenied', true, false)
+              body.dispatchEvent(event)
+            }
+            if (
+              isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) !== true
+            ) {
+              event.initEvent(
+                'targetedAdvertisingCookiesHasBeenDenied',
+                true,
+                false,
+              )
+              body.dispatchEvent(event)
+            }
+            if (
+              tcData.gdprApplies &&
+              typeof window.Optanon !== 'undefined' &&
+              window.Optanon.GetDomainData().IsIABEnabled
+            ) {
+              event.initEvent('IABTcDataReady', true, false)
+              body.dispatchEvent(event)
+            } else {
+              event.initEvent('nonIABCountryDataReady', true, false)
+              body.dispatchEvent(event)
+            }
+          }
+        }
+        var cnt = 0
+        var consentSetInterval = setInterval(function () {
+          cnt += 1
+          if (cnt === 600) {
+            userHasAcceptedTheCookies()
+            clearInterval(consentSetInterval)
+          }
+          if (
+            typeof window.Optanon !== 'undefined' &&
+            !window.Optanon.GetDomainData().IsIABEnabled
+          ) {
+            clearInterval(consentSetInterval)
+            userHasAcceptedTheCookies()
+            event.initEvent('oneTrustLoaded', true, false)
+            event.initEvent('nonIABCountryDataReady', true, false)
+            body.dispatchEvent(event)
+          }
+          if (typeof window.__tcfapi !== 'undefined') {
+            event.initEvent('oneTrustLoaded', true, false)
+            body.dispatchEvent(event)
+            clearInterval(consentSetInterval)
+            window.__tcfapi('addEventListener', 2, callbackIAB)
+          }
+        })
+      }
+      CMP()
+    </script>
+
+    <script>
+      var pageGlobals = {
+        reduced: '/tools/vendors',
+        currentPageData: [],
+        common: {
+          environment: {
+            countryCode: 'FR',
+            isJsArchitectureEnabled: true,
+            isCookieLessEnabled: false,
+            isInternationalOnePage: true,
+            subdomain: 'www.mariages.net',
+            subdomainCommunity: 'https:\/\/communaute.mariages.net\/',
+            isCurrentPageInCustomSubdomain: false,
+          },
+          platform: {
+            reducedPlatform: '',
+            isDesktop: true,
+            isMobile: false,
+            isApp: false,
+            mobilePlatform: 'mobile',
+            apps: {
+              appVersion: null,
+              usersApp: {
+                isCurrentPlatform: false,
+                isAndroid: false,
+                isIOS: false,
+                proxy: {
+                  isProxyBarsEnabled: false,
+                  isShowNativeLoginEnabled: false,
+                  areHappyMomentsEnabled: true,
+                  isNativeShareAvailable: false,
+                },
+              },
+              vendorsApp: {
+                isCurrentPlatform: false,
+                isAndroid: false,
+                isIOS: false,
+                proxy: {
+                  isProxyBarsEnabled: false,
+                  isIOSProxyBarsFullControlEnabled: false,
+                },
+              },
+              isAppUsersNativeSignUpLayerEnabled: false,
+            },
+          },
+          remarketing: {
+            facebook: {
+              isPixelEnabled: true,
+              isEnabled: true,
+              isLoaded: false,
+              tracker: 'experiment',
+            },
+            pinterest: { isEnabled: true, isLoaded: false },
+            criteo: { isEnabled: true },
+          },
+          analytics: {
+            isEcommerceEnabled: true,
+            isMigrationEnabled: false,
+            migrationTracker: false,
+            code: false,
+            reducedCode: 'UA-23302537-2',
+          },
+        },
+        experiments: [],
+      }
+    </script>
+
+    <script
+      defer=""
+      src="https://www.mariages.net/builds/desktop/js/symfnw-FR48-1-20220810-012_www_m_/common.js"
+    ></script>
+
+    <script
+      defer=""
+      src="https://www.mariages.net/builds/desktop/js/symfnw-FR48-1-20220810-012_www_m_/UserBundleDesktopToolsVendors.js"
+    ></script>
+
+    <script type="text/javascript">
+      ;(function (w) {
+        function setAttributes() {
+          w._sva.setVisitorTraits({
+            user_id: '6159171',
+          })
+        }
+        if (w._sva) {
+          setAttributes()
+        } else {
+          w.addEventListener('SurvicateReady', setAttributes)
+        }
+
+        var s = document.createElement('script')
+        s.src =
+          'https://survey.survicate.com/workspaces/ae0098ac48a2bb7f5ea48a76ccf7314f/web_surveys.js'
+        s.defer = true
+        var e = document.getElementsByTagName('script')[0]
+        e.parentNode.insertBefore(s, e)
+      })(window)
+    </script>
+
+    <script>
+      window.userLayersToShow = {
+        name: 'loadWedUserData',
+      }
+    </script>
+
+    <script>
+      window.reducedUrl = '/tools/vendors'
+    </script>
+
+    <script>
+      var gtagScript = function () {
+        var s = document.createElement('script'),
+          el = document.getElementsByTagName('script')[0]
+        s.defer = true
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-979578768'
+        el.parentNode.insertBefore(s, el)
+      }
+      window.dataLayer = window.dataLayer || []
+
+      window['gtag_enable_tcf_support'] = true
+      document
+        .getElementsByTagName('body')[0]
+        .addEventListener('oneTrustLoaded', function () {
+          gtagScript()
+        })
+
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'AW-979578768', { groups: 'adwords' })
+    </script>
+
+    <script>
+      gtag('event', 'page_view', {
+        APP_CORE: 0,
+        APP_DRESSES: 0,
+        APP_WEDSHOOTS: 0,
+        TOOLS_LEAD: 1,
+        TOOLS_VENDORS_LEAD: 1,
+        TOOLS_CHECKLIST_LEAD: 1,
+        TOOLS_LISTA_CREATED: 0,
+        TOOLS_GUESTS_LEAD: 1,
+        TOOLS_TABLES_LEAD: 1,
+        TOOLS_BUDGET_LEAD: 1,
+        COMMUNITY_LEAD: 0,
+        TOOLS_NAV: 1,
+        TOOLS_VENDORS_NAV: 1,
+        LOGGED: 1,
+        EMPRESA: 0,
+        EMPRESA_CATEGORY: 0,
+        send_to: 'adwords',
+        user_id: 'u6159171',
+      })
+    </script>
+    <script>
+      var facebookScript = function (f, b, e, v, n, t, s) {
+        if (f.fbq) return
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments)
+        }
+        if (!f._fbq) f._fbq = n
+        n.push = n
+        n.loaded = !0
+        n.version = '2.0'
+        n.queue = []
+        t = b.createElement(e)
+        t.defer = 1
+        t.src = v
+        s = b.getElementsByTagName(e)[0]
+        s.parentNode.insertBefore(t, s)
+      }
+
+      var toExecuteAfterFbInit = function () {
+        var hasGlobals =
+          parent.pageGlobals &&
+          parent.pageGlobals.common &&
+          parent.pageGlobals.common.remarketing &&
+          parent.pageGlobals.common.remarketing.facebook
+        var globalFacebook = hasGlobals
+          ? parent.pageGlobals.common.remarketing.facebook
+          : {}
+        var isLoaded = globalFacebook.isLoaded === true
+        if (!isLoaded) {
+          parent.fbq('init', '676610809150807', {
+            em: 'bourhym.naima@gmail.com',
+          })
+          globalFacebook.isLoaded = true
+        }
+
+        parent.fbq('track', 'PageView', {
+          APP_CORE: 0,
+          APP_DRESSES: 0,
+          APP_WEDSHOOTS: 0,
+          TOOLS_LEAD: 1,
+          TOOLS_VENDORS_LEAD: 1,
+          TOOLS_CHECKLIST_LEAD: 1,
+          TOOLS_LISTA_CREATED: 0,
+          TOOLS_GUESTS_LEAD: 1,
+          TOOLS_TABLES_LEAD: 1,
+          TOOLS_BUDGET_LEAD: 1,
+          COMMUNITY_LEAD: 0,
+          TOOLS_NAV: 1,
+          TOOLS_VENDORS_NAV: 1,
+          LOGGED: 1,
+          EMPRESA: 0,
+          EMPRESA_CATEGORY: 0,
+        })
+        parent.fbq('dataProcessingOptions', ['LDU'], 0, 0)
+      }
+
+      document
+        .getElementsByTagName('body')[0]
+        .addEventListener(
+          'targetedAdvertisingCookiesHasBeenAccepted',
+          function () {
+            facebookScript(
+              window,
+              document,
+              'script',
+              'https://connect.facebook.net/en_US/fbevents.js',
+            )
+            toExecuteAfterFbInit()
+          },
+        )
+
+      if (
+        parent.isCookieGroupAllowed(
+          parent.CONSENT_TARGETED_ADVERTISING_GROUP,
+        ) === true
+      ) {
+        facebookScript(
+          window,
+          document,
+          'script',
+          'https://connect.facebook.net/en_US/fbevents.js',
+        )
+        toExecuteAfterFbInit()
+      }
+    </script>
+    <script>
+      var pinterestScript = function () {
+        !(function (e) {
+          if (!window.pintrk) {
+            window.pintrk = function () {
+              window.pintrk.queue.push(Array.prototype.slice.call(arguments))
+            }
+            var n = window.pintrk
+            ;(n.queue = []), (n.version = '3.0')
+            var t = document.createElement('script')
+            ;(t.defer = 1), (t.src = e)
+            var r = document.getElementsByTagName('script')[0]
+            r.parentNode.insertBefore(t, r)
+          }
+        })('https://s.pinimg.com/ct/core.js')
+
+        var hasGlobalsPinterest =
+          parent.pageGlobals &&
+          parent.pageGlobals.common &&
+          parent.pageGlobals.common.remarketing &&
+          parent.pageGlobals.common.remarketing.pinterest
+        var globalPinterest = hasGlobalsPinterest
+          ? parent.pageGlobals.common.remarketing.pinterest
+          : {}
+        var isLoaded = globalPinterest.isLoaded === true
+
+        if (!isLoaded) {
+          parent.pintrk('load', 2612785292880)
+          globalPinterest.isLoaded = true
+        }
+
+        var isTracked = globalPinterest.isTracked === true
+        if (!isTracked) {
+          globalPinterest.isTracked = true
+          parent.pintrk('page')
+          parent.pintrk('track', 'custom', {
+            APP_CORE: '0',
+            APP_DRESSES: '0',
+            APP_WEDSHOOTS: '0',
+            TOOLS_LEAD: '1',
+            TOOLS_VENDORS_LEAD: '1',
+            TOOLS_CHECKLIST_LEAD: '1',
+            TOOLS_LISTA_CREATED: '0',
+            TOOLS_GUESTS_LEAD: '1',
+            TOOLS_TABLES_LEAD: '1',
+            TOOLS_BUDGET_LEAD: '1',
+            COMMUNITY_LEAD: '0',
+            TOOLS_NAV: '1',
+            TOOLS_VENDORS_NAV: '1',
+            LOGGED: '1',
+            EMPRESA: '0',
+            EMPRESA_CATEGORY: '0',
+            send_to: 'adwords',
+          })
+        }
+      }
+
+      /* Listener of the OneTrust callback when user accepts the cookies */
+      document
+        .getElementsByTagName('body')[0]
+        .addEventListener(
+          'targetedAdvertisingCookiesHasBeenAccepted',
+          function () {
+            pinterestScript()
+          },
+        )
+      /* Wrap of the Analytics script that checks the consent of the user and the default country configuration */
+      if (isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) === true) {
+        pinterestScript()
+      }
+    </script>
+
+    <script>
+      ;(function (i, r) {
+        i[r] =
+          i[r] ||
+          function () {
+            ;(i[r].q = i[r].q || []).push(arguments)
+          }
+      })(window, 'ga')
+      var analyticsManager = (function () {
+        var _storedAnalyticsEvents = []
+        function queueEvent(func) {
+          if (!!window.ga && !!ga.create) {
+            func()
+          } else {
+            _storedAnalyticsEvents.push(func)
+          }
+        }
+        function trackQueuedEvents() {
+          while (_storedAnalyticsEvents.length > 0) {
+            var queuedEvent = _storedAnalyticsEvents.shift()
+            queuedEvent()
+          }
+        }
+        return { queueEvent: queueEvent, trackQueuedEvents: trackQueuedEvents }
+      })()
+    </script>
+    <script>
+      var universalAnalyticsScript = function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r
+        i[r].l = 1 * new Date()
+        ;(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0])
+        a.defer = 1
+        a.onload = analyticsManager.trackQueuedEvents
+        a.src = g
+        m.parentNode.insertBefore(a, m)
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        document
+          .getElementsByTagName('body')[0]
+          .addEventListener('analyticsCookiesHasBeenAccepted', function () {
+            universalAnalyticsScript(
+              window,
+              document,
+              'script',
+              '//www.google-analytics.com/analytics.js',
+              'ga',
+            )
+          })
+        if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+          universalAnalyticsScript(
+            window,
+            document,
+            'script',
+            '//www.google-analytics.com/analytics.js',
+            'ga',
+          )
+        }
+      })
+    </script>
+    <script>
+      ga('create', 'UA-23302537-1', { userId: 'u6159171' })
+      ga('set', 'dimension1', 'no_logado')
+      ga('set', 'dimension1', 'logado')
+      ga('set', 'dimension4', 'no_logado')
+      ga('set', 'dimension1', 'logado')
+      ga('set', 'dimension11', '2023-07-01')
+      ga('set', 'dimension12', '2022-07-20 12:41:42')
+      ga('set', 'dimension13', '1')
+      ga('set', 'dimension14', '325')
+      ga('set', 'dimension6', 'u6159171')
+      ga('set', 'dimension5', '/tools/vendors')
+      ga('set', 'dimension138', '9237f06c-efe2-4c05-93ab-5aed390d5d75')
+      ga('set', 'contentGroup1', ' /tools/vendors')
+      var customDimension = document.getElementsByClassName(
+        'app-custom-dimension',
+      )
+      if (customDimension.length) {
+        Array.prototype.forEach.call(customDimension, function (el, i) {
+          ga(
+            'set',
+            el.getAttribute('data-name'),
+            '' + el.getAttribute('data-value'),
+          )
+        })
+      }
+      try {
+        parent.ga(
+          'set',
+          'dimension19',
+          window.localStorage.getItem('timestampCustomDimension'),
+        )
+      } catch (err) {}
+      ga(function (tracker) {
+        var clientId = tracker.get('clientId')
+        ga('set', 'dimension7', clientId)
+      })
+      ga('send', 'pageview')
+    </script>
+    <script class="app-ecommerce-script">
+      parent.ga('require', 'ec')
+    </script>
+    <script class="app-ecommerce-script">
+      try {
+        parent.ga(
+          'set',
+          'dimension19',
+          window.localStorage.getItem('timestampCustomDimension'),
+        )
+      } catch (err) {}
+    </script>
+
+    <script>
+      var reduced = '/tools/vendors'
+      var _gaq = _gaq || []
+      window.asyncAnalytics = true
+
+      _gaq.push(['_setAccount', 'UA-23302537-2'])
+      _gaq.push(['_setCustomVar', 1, 'UserLoginInfo', 'logado', 2])
+      _gaq.push(['_setCustomVar', 2, 'EmpLoginInfo', 'no_logado', 2])
+      _gaq.push(['_setCustomVar', 11, 'user_wedding_date', '2023-07-01', 1])
+      _gaq.push([
+        '_setCustomVar',
+        12,
+        'user_signup_date',
+        '2022-07-20 12:41:42',
+        1,
+      ])
+      _gaq.push(['_setCustomVar', 13, 'user_role', '1', 1])
+      _gaq.push(['_setCustomVar', 14, 'user_countdown', '325', 1])
+      _gaq.push(['_setSiteSpeedSampleRate', 10])
+      _gaq.push(['_trackPageview', '/tools/vendors'])
+
+      var oldAnalyticsScript = function () {
+        var ga = document.createElement('script')
+        ga.type = 'text/javascript'
+        ga.defer = true
+        ga.src =
+          ('https:' == document.location.protocol
+            ? 'https://ssl'
+            : 'http://www') + '.google-analytics.com/ga.js'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(ga, s)
+      }
+
+      document
+        .getElementsByTagName('body')[0]
+        .addEventListener('analyticsCookiesHasBeenAccepted', function () {
+          oldAnalyticsScript()
+        })
+      if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+        oldAnalyticsScript()
+      }
+    </script>
+
+    <script>
+      var _comscore = _comscore || []
+
+      var comscoreScript = function () {
+        var s = document.createElement('script'),
+          el = document.getElementsByTagName('script')[0]
+        s.defer = true
+        s.src =
+          (document.location.protocol == 'https:' ? 'https://sb' : 'http://b') +
+          '.scorecardresearch.com/cs/6156116/beacon.js'
+        el.parentNode.insertBefore(s, el)
+      }
+
+      document
+        .getElementsByTagName('body')[0]
+        .addEventListener('analyticsCookiesHasBeenAccepted', function () {
+          comscoreScript()
+        })
+      document
+        .getElementsByTagName('body')[0]
+        .addEventListener('IABTcDataReady', function () {
+          _comscore.push({ c1: '2', c2: '6156116' })
+        })
+      document
+        .getElementsByTagName('body')[0]
+        .addEventListener('nonIABCountryDataReady', function () {
+          _comscore.push({ c1: '2', c2: '6156116' })
+        })
+      if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+        comscoreScript()
+      }
+    </script>
+
+    <script>
+      window.pusher = {
+        actorJson:
+          '{\u0022id\u0022:\u00226159171\u0022,\u0022name\u0022:\u0022naima bourhym\u0022,\u0022avatar\u0022:\u0022https:\\/\\/cdn1.mariages.net\\/assets\\/img\\/user\\/120x120\\/user-female-120.jpg\u0022,\u0022avatarSvg\u0022:\u0022    <div class=\\\u0022avatar-alias size-avatar-small chat-message-avatar\\\u0022>\\n        <svg class=\\\u0022avatar-generic\\\u0022 version=\\\u00221.1\\\u0022 xmlns=\\\u0022http:\\/\\/www.w3.org\\/2000\\/svg\\\u0022 viewBox=\\\u00220 0 200 200\\\u0022 preserveAspectRatio=\\\u0022xMidYMin slice\\\u0022>\\n            <circle fill=\\\u0022#C7C9C0\\\u0022 cx=\\\u0022100\\\u0022 cy=\\\u0022100\\\u0022 r=\\\u0022100\\\u0022><\\/circle>\\n            <text transform=\\\u0022translate(100,130)\\\u0022 y=\\\u00220\\\u0022>\\n                <tspan font-size=\\\u002290\\\u0022 class=\\\u0022\\\u0022 fill=\\\u0022rgba(0,0,0,0.3)\\\u0022 text-anchor=\\\u0022middle\\\u0022>N<\\/tspan>\\n            <\\/text>\\n        <\\/svg>\\n    <\\/div>\\n\u0022,\u0022type\u0022:\u0022user\u0022}',
+        customOptions: {
+          disableChat: false,
+          disableUserVendorNotifications: false,
+          isChatbotEnabled: true,
+          openOnLoad: false,
+          canInitConversation: true,
+          isPersistentStorageEnabled: true,
+          disableAppChat: false,
+        },
+      }
+    </script>
+
+
+
+
+
+
+<!-- page 2: mon mariage -->
+
+
+
+<script
+src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+data-language="fr-FR"
+data-domain-script="1de663a5-ef96-421c-bffe-2f0cc8586eb4"
+data-ignore-ga="true"
+defer=""
+></script>
+<script>
+var isCountryCookiesActiveByDefault = false,
+  CONSENT_ANALYTICS_GROUP = 'C0002',
+  CONSENT_PERSONALIZATION_GROUP = 'C0003',
+  CONSENT_TARGETED_ADVERTISING_GROUP = 'C0004',
+  CONSENT_SOCIAL_MEDIA_GROUP = 'C0005',
+  cookieConsentContent = '',
+  hideCookieConsentLayer = '',
+  OptanonAlertBoxClosed = ''
+hideCookieConsentLayer = getCookie('hideCookieConsentLayer')
+OptanonAlertBoxClosed = getCookie('OptanonAlertBoxClosed')
+if (hideCookieConsentLayer === '1' || Boolean(OptanonAlertBoxClosed)) {
+  cookieConsentContent = queryStringToJSON(
+    getCookie('OptanonConsent') || '',
+  )
+}
+function getCookie(e) {
+  var o = document.cookie.match('(^|;)\\s*' + e + '\\s*=\\s*([^;]+)')
+  return o ? unescape(o.pop()) : null
+}
+function queryStringToJSON(e) {
+  var o = e.split('&'),
+    t = {}
+  return (
+    o.forEach(function (e) {
+      ;(e = e.split('=')), (t[e[0]] = decodeURIComponent(e[1] || ''))
+    }),
+    JSON.parse(JSON.stringify(t))
+  )
+}
+function isCookieGroupAllowed(e) {
+  var o = cookieConsentContent.groups
+  if ('string' != typeof o) {
+    if (
+      !isCountryCookiesActiveByDefault &&
+      e === CONSENT_ANALYTICS_GROUP &&
+      getCookie('hideCookieConsentLayer') === '1'
+    ) {
+      return true
+    }
+    return isCountryCookiesActiveByDefault
+  }
+  for (var t = o.split(','), n = 0; n < t.length; n++)
+    if (t[n].indexOf(e, 0) >= 0) return '1' === t[n].split(':')[1]
+  return !1
+}
+function userHasAcceptedTheCookies() {
+  var e = document.getElementsByTagName('body')[0],
+    o = document.createEvent('HTMLEvents')
+  ;(cookieConsentContent = queryStringToJSON(
+    getCookie('OptanonConsent') || '',
+  )),
+    !0 === isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) &&
+      (o.initEvent('analyticsCookiesHasBeenAccepted', !0, !1),
+      e.dispatchEvent(o)),
+    !0 === isCookieGroupAllowed(CONSENT_PERSONALIZATION_GROUP) &&
+      (o.initEvent('personalizationCookiesHasBeenAccepted', !0, !1),
+      e.dispatchEvent(o)),
+    !0 === isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) &&
+      (o.initEvent('targetedAdvertisingCookiesHasBeenAccepted', !0, !1),
+      e.dispatchEvent(o)),
+    !0 === isCookieGroupAllowed(CONSENT_SOCIAL_MEDIA_GROUP) &&
+      (o.initEvent(
+        'socialMediaAdvertisingCookiesHasBeenAccepted',
+        !0,
+        !1,
+      ),
+      e.dispatchEvent(o))
+}
+</script>
+<script>
+function CMP() {
+  var body = document.getElementsByTagName('body')[0]
+  var event = document.createEvent('HTMLEvents')
+  var callbackIAB = (tcData, success) => {
+    if (
+      success &&
+      (tcData.eventStatus === 'tcloaded' ||
+        tcData.eventStatus === 'useractioncomplete')
+    ) {
+      window.__tcfapi('removeEventListener', 2, () => {}, callbackIAB)
+      if (
+        (typeof window.Optanon !== 'undefined' &&
+          !window.Optanon.GetDomainData().IsIABEnabled) ||
+        (tcData.gdprApplies &&
+          typeof window.Optanon !== 'undefined' &&
+          window.Optanon.GetDomainData().IsIABEnabled &&
+          getCookie('OptanonAlertBoxClosed'))
+      ) {
+        userHasAcceptedTheCookies()
+      }
+      if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) !== true) {
+        event.initEvent('analyticsCookiesHasBeenDenied', true, false)
+        body.dispatchEvent(event)
+      }
+      if (
+        isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) !== true
+      ) {
+        event.initEvent(
+          'targetedAdvertisingCookiesHasBeenDenied',
+          true,
+          false,
+        )
+        body.dispatchEvent(event)
+      }
+      if (
+        tcData.gdprApplies &&
+        typeof window.Optanon !== 'undefined' &&
+        window.Optanon.GetDomainData().IsIABEnabled
+      ) {
+        event.initEvent('IABTcDataReady', true, false)
+        body.dispatchEvent(event)
+      } else {
+        event.initEvent('nonIABCountryDataReady', true, false)
+        body.dispatchEvent(event)
+      }
+    }
+  }
+  var cnt = 0
+  var consentSetInterval = setInterval(function () {
+    cnt += 1
+    if (cnt === 600) {
+      userHasAcceptedTheCookies()
+      clearInterval(consentSetInterval)
+    }
+    if (
+      typeof window.Optanon !== 'undefined' &&
+      !window.Optanon.GetDomainData().IsIABEnabled
+    ) {
+      clearInterval(consentSetInterval)
+      userHasAcceptedTheCookies()
+      event.initEvent('oneTrustLoaded', true, false)
+      event.initEvent('nonIABCountryDataReady', true, false)
+      body.dispatchEvent(event)
+    }
+    if (typeof window.__tcfapi !== 'undefined') {
+      event.initEvent('oneTrustLoaded', true, false)
+      body.dispatchEvent(event)
+      clearInterval(consentSetInterval)
+      window.__tcfapi('addEventListener', 2, callbackIAB)
+    }
+  })
+}
+CMP()
+</script>
+
+
+<script>
+  window.pusher = {
+    actorJson:
+      '{\u0022id\u0022:\u00226159171\u0022,\u0022name\u0022:\u0022naima bourhym\u0022,\u0022avatar\u0022:\u0022https:\\/\\/cdn1.mariages.net\\/assets\\/img\\/user\\/120x120\\/user-female-120.jpg\u0022,\u0022avatarSvg\u0022:\u0022    <div class=\\\u0022avatar-alias size-avatar-small chat-message-avatar\\\u0022>\\n        <svg class=\\\u0022avatar-generic\\\u0022 version=\\\u00221.1\\\u0022 xmlns=\\\u0022http:\\/\\/www.w3.org\\/2000\\/svg\\\u0022 viewBox=\\\u00220 0 200 200\\\u0022 preserveAspectRatio=\\\u0022xMidYMin slice\\\u0022>\\n            <circle fill=\\\u0022#C7C9C0\\\u0022 cx=\\\u0022100\\\u0022 cy=\\\u0022100\\\u0022 r=\\\u0022100\\\u0022><\\/circle>\\n            <text transform=\\\u0022translate(100,130)\\\u0022 y=\\\u00220\\\u0022>\\n                <tspan font-size=\\\u002290\\\u0022 class=\\\u0022\\\u0022 fill=\\\u0022rgba(0,0,0,0.3)\\\u0022 text-anchor=\\\u0022middle\\\u0022>N<\\/tspan>\\n            <\\/text>\\n        <\\/svg>\\n    <\\/div>\\n\u0022,\u0022type\u0022:\u0022user\u0022}',
+    customOptions: {
+      disableChat: false,
+      disableUserVendorNotifications: false,
+      isChatbotEnabled: true,
+      openOnLoad: false,
+      canInitConversation: true,
+      isPersistentStorageEnabled: true,
+      disableAppChat: false,
+    },
+  }
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (
+      parent.pageGlobals.common.environment.isJsArchitectureEnabled
+    ) {
+      parent.app.tracker.internalTrackerService.trackEventAllByData(
+        "<div  data-track-c='PlanningToolsAuthed'  data-track-a='a-show'  data-track-l='d-desktop+s-home_cards_download_app_ios'  data-track-s=''  data-track-v='0'  data-track-ni='1' ></div>",
+      )
+    } else {
+      parent.ga_trackEventAllByData(
+        $(
+          "<div  data-track-c='PlanningToolsAuthed'  data-track-a='a-show'  data-track-l='d-desktop+s-home_cards_download_app_ios'  data-track-s=''  data-track-v='0'  data-track-ni='1' ></div>",
+        ),
+      )
+    }
+  })
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (
+      parent.pageGlobals.common.environment.isJsArchitectureEnabled
+    ) {
+      parent.app.tracker.internalTrackerService.trackEventAllByData(
+        "<div  data-track-c='PlanningToolsAuthed'  data-track-a='a-show'  data-track-l='d-desktop+s-home_cards_download_app_android'  data-track-s=''  data-track-v='0'  data-track-ni='1' ></div>",
+      )
+    } else {
+      parent.ga_trackEventAllByData(
+        $(
+          "<div  data-track-c='PlanningToolsAuthed'  data-track-a='a-show'  data-track-l='d-desktop+s-home_cards_download_app_android'  data-track-s=''  data-track-v='0'  data-track-ni='1' ></div>",
+        ),
+      )
+    }
+  })
+</script>
+
+<script>
+  var pageGlobals = {
+    reduced: '/tools/main',
+    currentPageData: [],
+    common: {
+      environment: {
+        countryCode: 'FR',
+        isJsArchitectureEnabled: true,
+        isCookieLessEnabled: false,
+        isInternationalOnePage: true,
+        subdomain: 'www.mariages.net',
+        subdomainCommunity: 'https:\/\/communaute.mariages.net\/',
+        isCurrentPageInCustomSubdomain: false,
+      },
+      platform: {
+        reducedPlatform: '',
+        isDesktop: true,
+        isMobile: false,
+        isApp: false,
+        mobilePlatform: 'mobile',
+        apps: {
+          appVersion: null,
+          usersApp: {
+            isCurrentPlatform: false,
+            isAndroid: false,
+            isIOS: false,
+            proxy: {
+              isProxyBarsEnabled: false,
+              isShowNativeLoginEnabled: false,
+              areHappyMomentsEnabled: true,
+              isNativeShareAvailable: false,
+            },
+          },
+          vendorsApp: {
+            isCurrentPlatform: false,
+            isAndroid: false,
+            isIOS: false,
+            proxy: {
+              isProxyBarsEnabled: false,
+              isIOSProxyBarsFullControlEnabled: false,
+            },
+          },
+          isAppUsersNativeSignUpLayerEnabled: false,
+        },
+      },
+      remarketing: {
+        facebook: {
+          isPixelEnabled: true,
+          isEnabled: true,
+          isLoaded: false,
+          tracker: 'experiment',
+        },
+        pinterest: { isEnabled: true, isLoaded: false },
+        criteo: { isEnabled: true },
+      },
+      analytics: {
+        isEcommerceEnabled: true,
+        isMigrationEnabled: false,
+        migrationTracker: false,
+        code: false,
+        reducedCode: 'UA-23302537-2',
+      },
+    },
+    experiments: [],
+  }
+</script>
+
+<script
+  defer=""
+  src="https://www.mariages.net/builds/desktop/js/symfnw-FR48-1-20220811-002_www_m_/common.js"
+></script>
+
+<script
+  defer=""
+  src="https://www.mariages.net/builds/desktop/js/symfnw-FR48-1-20220811-002_www_m_/UserBundleDesktopToolsHome.js"
+></script>
+
+<script type="text/javascript">
+  ;(function (w) {
+    function setAttributes() {
+      w._sva.setVisitorTraits({
+        user_id: '6159171',
+      })
+    }
+    if (w._sva) {
+      setAttributes()
+    } else {
+      w.addEventListener('SurvicateReady', setAttributes)
+    }
+
+    var s = document.createElement('script')
+    s.src =
+      'https://survey.survicate.com/workspaces/ae0098ac48a2bb7f5ea48a76ccf7314f/web_surveys.js'
+    s.defer = true
+    var e = document.getElementsByTagName('script')[0]
+    e.parentNode.insertBefore(s, e)
+  })(window)
+</script>
+
+
+
+
+<script>
+  window.userLayersToShow = {
+    name: 'loadWedUserData',
+  }
+</script>
+
+<script>
+  window.reducedUrl = '/tools/main'
+</script>
+
+<div class="dnone">
+  <script>
+    var gtagScript = function () {
+      var s = document.createElement('script'),
+        el = document.getElementsByTagName('script')[0]
+      s.defer = true
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-979578768'
+      el.parentNode.insertBefore(s, el)
+    }
+    window.dataLayer = window.dataLayer || []
+
+    window['gtag_enable_tcf_support'] = true
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('oneTrustLoaded', function () {
+        gtagScript()
+      })
+
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+    gtag('config', 'AW-979578768', { groups: 'adwords' })
+  </script>
+
+  <script>
+    gtag('event', 'page_view', {
+      APP_CORE: 0,
+      APP_DRESSES: 0,
+      APP_WEDSHOOTS: 0,
+      TOOLS_LEAD: 1,
+      TOOLS_VENDORS_LEAD: 1,
+      TOOLS_CHECKLIST_LEAD: 1,
+      TOOLS_LISTA_CREATED: 0,
+      TOOLS_GUESTS_LEAD: 1,
+      TOOLS_TABLES_LEAD: 1,
+      TOOLS_BUDGET_LEAD: 1,
+      COMMUNITY_LEAD: 0,
+      TOOLS_NAV: 1,
+      LOGGED: 1,
+      EMPRESA: 0,
+      EMPRESA_CATEGORY: 0,
+      send_to: 'adwords',
+      user_id: 'u6159171',
+    })
+  </script>
+  <script>
+    var facebookScript = function (f, b, e, v, n, t, s) {
+      if (f.fbq) return
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments)
+      }
+      if (!f._fbq) f._fbq = n
+      n.push = n
+      n.loaded = !0
+      n.version = '2.0'
+      n.queue = []
+      t = b.createElement(e)
+      t.defer = 1
+      t.src = v
+      s = b.getElementsByTagName(e)[0]
+      s.parentNode.insertBefore(t, s)
+    }
+
+    var toExecuteAfterFbInit = function () {
+      var hasGlobals =
+        parent.pageGlobals &&
+        parent.pageGlobals.common &&
+        parent.pageGlobals.common.remarketing &&
+        parent.pageGlobals.common.remarketing.facebook
+      var globalFacebook = hasGlobals
+        ? parent.pageGlobals.common.remarketing.facebook
+        : {}
+      var isLoaded = globalFacebook.isLoaded === true
+      if (!isLoaded) {
+        parent.fbq('init', '676610809150807', {
+          em: 'bourhym.naima@gmail.com',
+        })
+        globalFacebook.isLoaded = true
+      }
+
+      parent.fbq('track', 'PageView', {
+        APP_CORE: 0,
+        APP_DRESSES: 0,
+        APP_WEDSHOOTS: 0,
+        TOOLS_LEAD: 1,
+        TOOLS_VENDORS_LEAD: 1,
+        TOOLS_CHECKLIST_LEAD: 1,
+        TOOLS_LISTA_CREATED: 0,
+        TOOLS_GUESTS_LEAD: 1,
+        TOOLS_TABLES_LEAD: 1,
+        TOOLS_BUDGET_LEAD: 1,
+        COMMUNITY_LEAD: 0,
+        TOOLS_NAV: 1,
+        LOGGED: 1,
+        EMPRESA: 0,
+        EMPRESA_CATEGORY: 0,
+      })
+      parent.fbq('dataProcessingOptions', ['LDU'], 0, 0)
+    }
+
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener(
+        'targetedAdvertisingCookiesHasBeenAccepted',
+        function () {
+          facebookScript(
+            window,
+            document,
+            'script',
+            'https://connect.facebook.net/en_US/fbevents.js',
+          )
+          toExecuteAfterFbInit()
+        },
+      )
+
+    if (
+      parent.isCookieGroupAllowed(
+        parent.CONSENT_TARGETED_ADVERTISING_GROUP,
+      ) === true
+    ) {
+      facebookScript(
+        window,
+        document,
+        'script',
+        'https://connect.facebook.net/en_US/fbevents.js',
+      )
+      toExecuteAfterFbInit()
+    }
+  </script>
+  <script>
+    var pinterestScript = function () {
+      !(function (e) {
+        if (!window.pintrk) {
+          window.pintrk = function () {
+            window.pintrk.queue.push(Array.prototype.slice.call(arguments))
+          }
+          var n = window.pintrk
+          ;(n.queue = []), (n.version = '3.0')
+          var t = document.createElement('script')
+          ;(t.defer = 1), (t.src = e)
+          var r = document.getElementsByTagName('script')[0]
+          r.parentNode.insertBefore(t, r)
+        }
+      })('https://s.pinimg.com/ct/core.js')
+
+      var hasGlobalsPinterest =
+        parent.pageGlobals &&
+        parent.pageGlobals.common &&
+        parent.pageGlobals.common.remarketing &&
+        parent.pageGlobals.common.remarketing.pinterest
+      var globalPinterest = hasGlobalsPinterest
+        ? parent.pageGlobals.common.remarketing.pinterest
+        : {}
+      var isLoaded = globalPinterest.isLoaded === true
+
+      if (!isLoaded) {
+        parent.pintrk('load', 2612785292880)
+        globalPinterest.isLoaded = true
+      }
+
+      var isTracked = globalPinterest.isTracked === true
+      if (!isTracked) {
+        globalPinterest.isTracked = true
+        parent.pintrk('page')
+        parent.pintrk('track', 'custom', {
+          APP_CORE: '0',
+          APP_DRESSES: '0',
+          APP_WEDSHOOTS: '0',
+          TOOLS_LEAD: '1',
+          TOOLS_VENDORS_LEAD: '1',
+          TOOLS_CHECKLIST_LEAD: '1',
+          TOOLS_LISTA_CREATED: '0',
+          TOOLS_GUESTS_LEAD: '1',
+          TOOLS_TABLES_LEAD: '1',
+          TOOLS_BUDGET_LEAD: '1',
+          COMMUNITY_LEAD: '0',
+          TOOLS_NAV: '1',
+          LOGGED: '1',
+          EMPRESA: '0',
+          EMPRESA_CATEGORY: '0',
+          send_to: 'adwords',
+        })
+      }
+    }
+
+    /* Listener of the OneTrust callback when user accepts the cookies */
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener(
+        'targetedAdvertisingCookiesHasBeenAccepted',
+        function () {
+          pinterestScript()
+        },
+      )
+    /* Wrap of the Analytics script that checks the consent of the user and the default country configuration */
+    if (isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) === true) {
+      pinterestScript()
+    }
+  </script>
+
+
+<script>
+  ;(function (i, r) {
+    i[r] =
+      i[r] ||
+      function () {
+        ;(i[r].q = i[r].q || []).push(arguments)
+      }
+  })(window, 'ga')
+  var analyticsManager = (function () {
+    var _storedAnalyticsEvents = []
+    function queueEvent(func) {
+      if (!!window.ga && !!ga.create) {
+        func()
+      } else {
+        _storedAnalyticsEvents.push(func)
+      }
+    }
+    function trackQueuedEvents() {
+      while (_storedAnalyticsEvents.length > 0) {
+        var queuedEvent = _storedAnalyticsEvents.shift()
+        queuedEvent()
+      }
+    }
+    return { queueEvent: queueEvent, trackQueuedEvents: trackQueuedEvents }
+  })()
+</script>
+<script>
+  var universalAnalyticsScript = function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r
+    i[r].l = 1 * new Date()
+    ;(a = s.createElement(o)), (m = s.getElementsByTagName(o)[0])
+    a.defer = 1
+    a.onload = analyticsManager.trackQueuedEvents
+    a.src = g
+    m.parentNode.insertBefore(a, m)
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('analyticsCookiesHasBeenAccepted', function () {
+        universalAnalyticsScript(
+          window,
+          document,
+          'script',
+          '//www.google-analytics.com/analytics.js',
+          'ga',
+        )
+      })
+    if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+      universalAnalyticsScript(
+        window,
+        document,
+        'script',
+        '//www.google-analytics.com/analytics.js',
+        'ga',
+      )
+    }
+  })
+</script>
+<script>
+  ga('create', 'UA-23302537-1', { userId: 'u6159171' })
+  ga('set', 'dimension1', 'no_logado')
+  ga('set', 'dimension1', 'logado')
+  ga('set', 'dimension4', 'no_logado')
+  ga('set', 'dimension1', 'logado')
+  ga('set', 'dimension11', '2023-07-01')
+  ga('set', 'dimension12', '2022-07-20 12:41:42')
+  ga('set', 'dimension13', '1')
+  ga('set', 'dimension14', '324')
+  ga('set', 'dimension6', 'u6159171')
+  ga('set', 'dimension5', '/tools/main')
+  ga('set', 'dimension138', '9237f06c-efe2-4c05-93ab-5aed390d5d75')
+  ga('set', 'contentGroup1', ' /tools/main')
+  var customDimension = document.getElementsByClassName(
+    'app-custom-dimension',
+  )
+  if (customDimension.length) {
+    Array.prototype.forEach.call(customDimension, function (el, i) {
+      ga(
+        'set',
+        el.getAttribute('data-name'),
+        '' + el.getAttribute('data-value'),
+      )
+    })
+  }
+  try {
+    parent.ga(
+      'set',
+      'dimension19',
+      window.localStorage.getItem('timestampCustomDimension'),
+    )
+  } catch (err) {}
+  ga(function (tracker) {
+    var clientId = tracker.get('clientId')
+    ga('set', 'dimension7', clientId)
+  })
+  ga('send', 'pageview')
+</script>
+<script class="app-ecommerce-script">
+  parent.ga('require', 'ec')
+</script>
+<script class="app-ecommerce-script">
+  try {
+    parent.ga(
+      'set',
+      'dimension19',
+      window.localStorage.getItem('timestampCustomDimension'),
+    )
+  } catch (err) {}
+</script>
+
+<script>
+  var reduced = '/tools/main'
+  var _gaq = _gaq || []
+  window.asyncAnalytics = true
+
+  _gaq.push(['_setAccount', 'UA-23302537-2'])
+  _gaq.push(['_setCustomVar', 1, 'UserLoginInfo', 'logado', 2])
+  _gaq.push(['_setCustomVar', 2, 'EmpLoginInfo', 'no_logado', 2])
+  _gaq.push(['_setCustomVar', 11, 'user_wedding_date', '2023-07-01', 1])
+  _gaq.push([
+    '_setCustomVar',
+    12,
+    'user_signup_date',
+    '2022-07-20 12:41:42',
+    1,
+  ])
+  _gaq.push(['_setCustomVar', 13, 'user_role', '1', 1])
+  _gaq.push(['_setCustomVar', 14, 'user_countdown', '324', 1])
+  _gaq.push(['_setSiteSpeedSampleRate', 10])
+  _gaq.push(['_trackPageview', '/tools/main'])
+
+  var oldAnalyticsScript = function () {
+    var ga = document.createElement('script')
+    ga.type = 'text/javascript'
+    ga.defer = true
+    ga.src =
+      ('https:' == document.location.protocol
+        ? 'https://ssl'
+        : 'http://www') + '.google-analytics.com/ga.js'
+    var s = document.getElementsByTagName('script')[0]
+    s.parentNode.insertBefore(ga, s)
+  }
+
+  document
+    .getElementsByTagName('body')[0]
+    .addEventListener('analyticsCookiesHasBeenAccepted', function () {
+      oldAnalyticsScript()
+    })
+  if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+    oldAnalyticsScript()
+  }
+</script>
+
+<script>
+  var _comscore = _comscore || []
+
+  var comscoreScript = function () {
+    var s = document.createElement('script'),
+      el = document.getElementsByTagName('script')[0]
+    s.defer = true
+    s.src =
+      (document.location.protocol == 'https:' ? 'https://sb' : 'http://b') +
+      '.scorecardresearch.com/cs/6156116/beacon.js'
+    el.parentNode.insertBefore(s, el)
+  }
+
+  document
+    .getElementsByTagName('body')[0]
+    .addEventListener('analyticsCookiesHasBeenAccepted', function () {
+      comscoreScript()
+    })
+  document
+    .getElementsByTagName('body')[0]
+    .addEventListener('IABTcDataReady', function () {
+      _comscore.push({ c1: '2', c2: '6156116' })
+    })
+  document
+    .getElementsByTagName('body')[0]
+    .addEventListener('nonIABCountryDataReady', function () {
+      _comscore.push({ c1: '2', c2: '6156116' })
+    })
+  if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+    comscoreScript()
+  }
+</script>
+
+
+
+
+
+<!-- page des invités -->
+
+<!-- 
+
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-language="fr-FR" data-domain-script="1de663a5-ef96-421c-bffe-2f0cc8586eb4" data-ignore-ga="true" defer=""></script>
+<script>var isCountryCookiesActiveByDefault=false,CONSENT_ANALYTICS_GROUP="C0002",CONSENT_PERSONALIZATION_GROUP="C0003",CONSENT_TARGETED_ADVERTISING_GROUP="C0004",CONSENT_SOCIAL_MEDIA_GROUP="C0005",cookieConsentContent='',hideCookieConsentLayer= '', OptanonAlertBoxClosed='';hideCookieConsentLayer=getCookie('hideCookieConsentLayer');OptanonAlertBoxClosed=getCookie('OptanonAlertBoxClosed');if(hideCookieConsentLayer==="1"||Boolean(OptanonAlertBoxClosed)){cookieConsentContent=queryStringToJSON(getCookie('OptanonConsent')||'');}function getCookie(e){var o=document.cookie.match("(^|;)\\s*"+e+"\\s*=\\s*([^;]+)");return o?unescape(o.pop()):null}function queryStringToJSON(e){var o=e.split("&"),t={};return o.forEach(function(e){e=e.split("="),t[e[0]]=decodeURIComponent(e[1]||"")}),JSON.parse(JSON.stringify(t))}function isCookieGroupAllowed(e){var o=cookieConsentContent.groups;if("string"!=typeof o){if(!isCountryCookiesActiveByDefault && e===CONSENT_ANALYTICS_GROUP && getCookie('hideCookieConsentLayer')==="1"){return true}return isCountryCookiesActiveByDefault;}for(var t=o.split(","),n=0;n<t.length;n++)if(t[n].indexOf(e,0)>=0)return"1"===t[n].split(":")[1];return!1}function userHasAcceptedTheCookies(){var e=document.getElementsByTagName("body")[0],o=document.createEvent("HTMLEvents");cookieConsentContent=queryStringToJSON(getCookie("OptanonConsent")||""),!0===isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP)&&(o.initEvent("analyticsCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_PERSONALIZATION_GROUP)&&(o.initEvent("personalizationCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP)&&(o.initEvent("targetedAdvertisingCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o)),!0===isCookieGroupAllowed(CONSENT_SOCIAL_MEDIA_GROUP)&&(o.initEvent("socialMediaAdvertisingCookiesHasBeenAccepted",!0,!1),e.dispatchEvent(o))}</script>
+<script>
+function CMP() {
+var body = document.getElementsByTagName('body')[0];
+var event = document.createEvent('HTMLEvents');
+var callbackIAB = (tcData, success) => {
+    if (success && (tcData.eventStatus === 'tcloaded' || tcData.eventStatus === 'useractioncomplete')) {
+        window.__tcfapi('removeEventListener', 2, () => {
+        }, callbackIAB);
+        if ((typeof window.Optanon !== "undefined" &&
+          !window.Optanon.GetDomainData().IsIABEnabled) ||
+          (tcData.gdprApplies &&
+            typeof window.Optanon !== "undefined" &&
+            window.Optanon.GetDomainData().IsIABEnabled &&
+            getCookie('OptanonAlertBoxClosed'))) {
+          userHasAcceptedTheCookies();
+        }
+        if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) !== true) {
+            event.initEvent('analyticsCookiesHasBeenDenied', true, false);
+            body.dispatchEvent(event);
+        }
+        if (isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) !== true) {
+            event.initEvent('targetedAdvertisingCookiesHasBeenDenied', true, false);
+            body.dispatchEvent(event);
+        }
+        if (tcData.gdprApplies && typeof window.Optanon !== "undefined" && window.Optanon.GetDomainData().IsIABEnabled) {
+            event.initEvent('IABTcDataReady', true, false);
+            body.dispatchEvent(event);
+        } else {
+            event.initEvent('nonIABCountryDataReady', true, false);
+            body.dispatchEvent(event);
+        }
+    }
+}
+var cnt = 0;
+var consentSetInterval = setInterval(function () {
+    cnt += 1;
+    if (cnt === 600) {
+        userHasAcceptedTheCookies();
+        clearInterval(consentSetInterval);
+    }
+    if (typeof window.Optanon !== "undefined" && !window.Optanon.GetDomainData().IsIABEnabled) {
+        clearInterval(consentSetInterval);
+        userHasAcceptedTheCookies();
+        event.initEvent('oneTrustLoaded', true, false);
+        event.initEvent('nonIABCountryDataReady', true, false);
+        body.dispatchEvent(event);
+    }
+    if (typeof window.__tcfapi !== "undefined") {
+        event.initEvent('oneTrustLoaded', true, false);
+        body.dispatchEvent(event);
+        clearInterval(consentSetInterval);
+        window.__tcfapi('addEventListener', 2, callbackIAB);
+    }
+});
+}
+CMP();
+</script>
+<script src="https://www.googletagservices.com/tag/js/gpt.js" defer=""></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+    googletag.cmd.push(function() {
+        var slot0 = googletag.defineSlot('/4879/Planningtools.n_FR/Desktop/guestlist/bottomleaderboard', [[728,90],[728,60]], 'div-gpt-ad-1334158298810-0').addService(googletag.pubads());
+
+                                var showAds = function () {
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+                googletag.cmd.push(function(){
+                    googletag.pubads().refresh();
+                });
+            }
+            var programmaticAds = function () {
+                window.__tcfapi('getTCData', 2, (tcData, success) => {
+                    if (success && (!tcData.gdprApplies || tcData.purpose.consents[1])) {
+                        showAds();
+                    }
+                }, []);
+            }
+
+            document.getElementsByTagName('body')[0].addEventListener('IABTcDataReady', function () {
+                programmaticAds();
+            });
+
+            document.getElementsByTagName('body')[0].addEventListener('nonIABCountryDataReady', function () {
+                showAds();
+            });
+
+        
+        /* We fire a global event when DFP library has been loaded */
+        window.app.event.emit('DFP::Loaded', googletag);
+    });
+</script>
+
+<script>
+                    
+  // Set display timeout to avoid problems when infinite scroll adds new content to DOM
+  setTimeout(function () {
+    googletag.cmd.push(function () {
+      googletag.display('div-gpt-ad-1334158298810-0');
+    });
+  }, 0);
+</script>
+<script>
+  var pageGlobals = {
+                                          reduced: '/tools/groups'            
+                          ,                                                             currentPageData:[]            
+                          ,                                                             common:{"environment":{"countryCode":"FR","isJsArchitectureEnabled":true,"isCookieLessEnabled":false,"isInternationalOnePage":true,"subdomain":"www.mariages.net","subdomainCommunity":"https:\/\/communaute.mariages.net\/","isCurrentPageInCustomSubdomain":false},"platform":{"reducedPlatform":"","isDesktop":true,"isMobile":false,"isApp":false,"mobilePlatform":"mobile","apps":{"appVersion":null,"usersApp":{"isCurrentPlatform":false,"isAndroid":false,"isIOS":false,"proxy":{"isProxyBarsEnabled":false,"isShowNativeLoginEnabled":false,"areHappyMomentsEnabled":true,"isNativeShareAvailable":false}},"vendorsApp":{"isCurrentPlatform":false,"isAndroid":false,"isIOS":false,"proxy":{"isProxyBarsEnabled":false,"isIOSProxyBarsFullControlEnabled":false}},"isAppUsersNativeSignUpLayerEnabled":false}},"remarketing":{"facebook":{"isPixelEnabled":true,"isEnabled":true,"isLoaded":false,"tracker":"experiment"},"pinterest":{"isEnabled":true,"isLoaded":false},"criteo":{"isEnabled":true}},"analytics":{"isEcommerceEnabled":true,"isMigrationEnabled":false,"migrationTracker":false,"code":false,"reducedCode":"UA-23302537-2"}}            
+                          ,                                                             experiments:[]            
+                                  };
+</script>
+
+
+<script defer="" src="https://www.mariages.net/builds/desktop/js/symfnw-FR48-1-20220811-002_www_m_/common.js"></script>
+
+
+<script defer="" src="https://www.mariages.net/builds/desktop/js/symfnw-FR48-1-20220811-002_www_m_/UserBundleDesktopToolsGuests.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+(function(w) {
+  function setAttributes() {
+    w._sva.setVisitorTraits({
+      user_id: '6159171'
+    });
+  }
+  if (w._sva) {
+    setAttributes();
+  } else {
+    w.addEventListener("SurvicateReady", setAttributes);
+  }
+
+  var s = document.createElement('script');
+  s.src = 'https://survey.survicate.com/workspaces/ae0098ac48a2bb7f5ea48a76ccf7314f/web_surveys.js';
+  s.defer = true;
+  var e = document.getElementsByTagName('script')[0];
+  e.parentNode.insertBefore(s, e);
+})(window);
+</script>
+
+<script>
+  window.userLayersToShow = {
+                      name: "loadWedUserData"
+              }
+</script>
+
+<script>
+  window.reducedUrl = "/tools/groups"
+</script>
+<script>
+  var gtagScript = function() { var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.defer = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=AW-979578768";
+  el.parentNode.insertBefore(s, el);}
+  window.dataLayer = window.dataLayer || [];
+
+          window['gtag_enable_tcf_support'] = true;
+      document.getElementsByTagName('body')[0].addEventListener('oneTrustLoaded', function () {
+          gtagScript();
+      });
+
+      function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-979578768', { groups: 'adwords' });
+</script>
+
+          <script>
+              gtag('event', 'page_view', {"APP_CORE":0,"APP_DRESSES":0,"APP_WEDSHOOTS":0,"TOOLS_LEAD":1,"TOOLS_VENDORS_LEAD":1,"TOOLS_CHECKLIST_LEAD":1,"TOOLS_LISTA_CREATED":0,"TOOLS_GUESTS_LEAD":1,"TOOLS_TABLES_LEAD":1,"TOOLS_BUDGET_LEAD":1,"COMMUNITY_LEAD":0,"COMMUNITY_NAV":1,"LOGGED":1,"EMPRESA":0,"EMPRESA_CATEGORY":0,"send_to":"adwords","user_id":"u6159171"});
+              
+          </script>              <script>
+                var facebookScript = function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.defer=1;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)};
+                
+                var toExecuteAfterFbInit = function () {                  
+                    var hasGlobals = parent.pageGlobals && parent.pageGlobals.common && parent.pageGlobals.common.remarketing && parent.pageGlobals.common.remarketing.facebook
+                    var globalFacebook = hasGlobals ? parent.pageGlobals.common.remarketing.facebook : {};
+                    var isLoaded = globalFacebook.isLoaded === true;
+                    if (!isLoaded) {
+                      parent.fbq('init', '676610809150807', {"em":"bourhym.naima@gmail.com"}); 
+                      globalFacebook.isLoaded = true;
+                    }
+                    
+                    parent.fbq('track', 'PageView', {"APP_CORE":0,"APP_DRESSES":0,"APP_WEDSHOOTS":0,"TOOLS_LEAD":1,"TOOLS_VENDORS_LEAD":1,"TOOLS_CHECKLIST_LEAD":1,"TOOLS_LISTA_CREATED":0,"TOOLS_GUESTS_LEAD":1,"TOOLS_TABLES_LEAD":1,"TOOLS_BUDGET_LEAD":1,"COMMUNITY_LEAD":0,"COMMUNITY_NAV":1,"LOGGED":1,"EMPRESA":0,"EMPRESA_CATEGORY":0}); parent.fbq('dataProcessingOptions', ['LDU'], 0, 0); 
+                }
+                
+                document.getElementsByTagName('body')[0].addEventListener('targetedAdvertisingCookiesHasBeenAccepted', function () {
+                    facebookScript(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+                    toExecuteAfterFbInit ()
+                });
+
+                if (parent.isCookieGroupAllowed(parent.CONSENT_TARGETED_ADVERTISING_GROUP) === true) {
+                    facebookScript(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+                    toExecuteAfterFbInit ()                      
+                }
+          </script>             <script>
+              var pinterestScript = function() {
+                  !function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(
+                      Array.prototype.slice.call(arguments))};var
+                      n=window.pintrk;n.queue=[],n.version='3.0';var
+                      t=document.createElement('script');t.defer=1,t.src=e;var
+                      r=document.getElementsByTagName('script')[0];r.parentNode.insertBefore(t,r)}}('https://s.pinimg.com/ct/core.js');
+
+                  var hasGlobalsPinterest = parent.pageGlobals && parent.pageGlobals.common && parent.pageGlobals.common.remarketing && parent.pageGlobals.common.remarketing.pinterest;
+                  var globalPinterest = hasGlobalsPinterest ? parent.pageGlobals.common.remarketing.pinterest : {};
+                  var isLoaded = globalPinterest.isLoaded === true;
+                  
+                  if (!isLoaded) {
+                      parent.pintrk('load', 2612785292880);
+                      globalPinterest.isLoaded = true;
+                  }
+                  
+                    var isTracked = globalPinterest.isTracked === true;
+                    if (!isTracked) {
+                      globalPinterest.isTracked = true;
+                      parent.pintrk('page');
+                      parent.pintrk('track', 'custom', {"APP_CORE":"0","APP_DRESSES":"0","APP_WEDSHOOTS":"0","TOOLS_LEAD":"1","TOOLS_VENDORS_LEAD":"1","TOOLS_CHECKLIST_LEAD":"1","TOOLS_LISTA_CREATED":"0","TOOLS_GUESTS_LEAD":"1","TOOLS_TABLES_LEAD":"1","TOOLS_BUDGET_LEAD":"1","COMMUNITY_LEAD":"0","COMMUNITY_NAV":"1","LOGGED":"1","EMPRESA":"0","EMPRESA_CATEGORY":"0","send_to":"adwords"});
+                      
+                    }
+              }
+
+              /* Listener of the OneTrust callback when user accepts the cookies */
+              document.getElementsByTagName('body')[0].addEventListener('targetedAdvertisingCookiesHasBeenAccepted', function () {
+                  pinterestScript();
+              });
+              /* Wrap of the Analytics script that checks the consent of the user and the default country configuration */
+              if (isCookieGroupAllowed(CONSENT_TARGETED_ADVERTISING_GROUP) === true) {
+                  pinterestScript();
+              }
+          </script>
+           <script>(function(i,r){i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)}})(window,'ga');var analyticsManager = (function() {var _storedAnalyticsEvents = [];function queueEvent(func) {if (!!window.ga && !!ga.create) {func();} else {_storedAnalyticsEvents.push(func);}}function trackQueuedEvents() {while (_storedAnalyticsEvents.length > 0) {var queuedEvent = _storedAnalyticsEvents.shift();queuedEvent();}}return {queueEvent : queueEvent,trackQueuedEvents : trackQueuedEvents,}})();</script><script>var universalAnalyticsScript = function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.defer=1;a.onload=analyticsManager.trackQueuedEvents;a.src=g;m.parentNode.insertBefore(a,m)};document.addEventListener('DOMContentLoaded', function () {document.getElementsByTagName('body')[0].addEventListener('analyticsCookiesHasBeenAccepted', function () {universalAnalyticsScript(window,document,'script','//www.google-analytics.com/analytics.js','ga');});if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {universalAnalyticsScript(window,document,'script','//www.google-analytics.com/analytics.js','ga');}});</script><script>ga("create", "UA-23302537-1", {"userId":"u6159171"});ga('set', 'dimension1', 'no_logado');ga('set', 'dimension1', 'logado');ga('set', 'dimension4', 'no_logado');ga('set', 'dimension1', 'logado');ga('set', 'dimension11', '2023-07-01');ga('set', 'dimension12', '2022-07-20 12:41:42');ga('set', 'dimension13', '1');ga('set', 'dimension14', '324');ga('set', 'dimension6', 'u6159171');ga('set', 'dimension5', '/tools/groups');ga('set', 'dimension138', '9237f06c-efe2-4c05-93ab-5aed390d5d75');ga('set', 'contentGroup1', ' /tools/groups');var customDimension = document.getElementsByClassName('app-custom-dimension');if (customDimension.length) {Array.prototype.forEach.call(customDimension, function(el, i){ga('set', el.getAttribute('data-name'), '' + el.getAttribute('data-value'));});}try {parent.ga('set', 'dimension19', window.localStorage.getItem('timestampCustomDimension'));} catch (err) {}ga(function(tracker) {var clientId = tracker.get('clientId');ga('set', 'dimension7', clientId);});ga("send", "pageview");</script><script class="app-ecommerce-script">parent.ga('require', 'ec');</script><script class="app-ecommerce-script">try {parent.ga('set', 'dimension19', window.localStorage.getItem('timestampCustomDimension'));} catch (err) {}</script>
+    
+            <script>
+          var reduced = '/tools/groups';
+          var _gaq = _gaq || [];
+          window.asyncAnalytics = true;
+          
+                    _gaq.push(['_setAccount', 'UA-23302537-2']);
+                          _gaq.push(['_setCustomVar',1,'UserLoginInfo','logado',2]);
+                            _gaq.push(['_setCustomVar',2,'EmpLoginInfo','no_logado',2]);
+                            _gaq.push(['_setCustomVar',11,'user_wedding_date','2023-07-01',1]);
+                            _gaq.push(['_setCustomVar',12,'user_signup_date','2022-07-20 12:41:42',1]);
+                            _gaq.push(['_setCustomVar',13,'user_role','1',1]);
+                            _gaq.push(['_setCustomVar',14,'user_countdown','324',1]);
+                      _gaq.push(['_setSiteSpeedSampleRate', 10]);          _gaq.push(['_trackPageview', '/tools/groups']);
+          
+          var oldAnalyticsScript = function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.defer = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+
+                        }
+
+                    document.getElementsByTagName('body')[0].addEventListener('analyticsCookiesHasBeenAccepted', function () {
+            oldAnalyticsScript();
+          });
+                    if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+            oldAnalyticsScript();
+          }
+        </script>
+    
+
+<script>
+  var _comscore = _comscore || []
+
+    var comscoreScript = function () {
+    var s = document.createElement('script'), el = document.getElementsByTagName('script')[0]
+    s.defer = true
+    s.src = (document.location.protocol == 'https:' ? 'https://sb' : 'http://b') + '.scorecardresearch.com/cs/6156116/beacon.js'
+    el.parentNode.insertBefore(s, el)
+  }
+
+    document.getElementsByTagName('body')[0].addEventListener('analyticsCookiesHasBeenAccepted', function () {
+    comscoreScript()
+  })
+  document.getElementsByTagName('body')[0].addEventListener('IABTcDataReady', function () {
+    _comscore.push({ c1: '2', c2: '6156116' })
+  })
+  document.getElementsByTagName('body')[0].addEventListener('nonIABCountryDataReady', function () {
+      _comscore.push({ c1: '2', c2: '6156116' })
+  })
+    if (isCookieGroupAllowed(CONSENT_ANALYTICS_GROUP) === true) {
+    comscoreScript()
+  }
+</script>
+
+<script>
+  window.pusher = {
+actorJson: '{\u0022id\u0022:\u00226159171\u0022,\u0022name\u0022:\u0022naima bourhym\u0022,\u0022avatar\u0022:\u0022https:\\/\\/cdn1.mariages.net\\/assets\\/img\\/user\\/120x120\\/user-female-120.jpg\u0022,\u0022avatarSvg\u0022:\u0022    <div class=\\\u0022avatar-alias size-avatar-small chat-message-avatar\\\u0022>\\n        <svg class=\\\u0022avatar-generic\\\u0022 version=\\\u00221.1\\\u0022 xmlns=\\\u0022http:\\/\\/www.w3.org\\/2000\\/svg\\\u0022 viewBox=\\\u00220 0 200 200\\\u0022 preserveAspectRatio=\\\u0022xMidYMin slice\\\u0022>\\n            <circle fill=\\\u0022#C7C9C0\\\u0022 cx=\\\u0022100\\\u0022 cy=\\\u0022100\\\u0022 r=\\\u0022100\\\u0022><\\/circle>\\n            <text transform=\\\u0022translate(100,130)\\\u0022 y=\\\u00220\\\u0022>\\n                <tspan font-size=\\\u002290\\\u0022 class=\\\u0022\\\u0022 fill=\\\u0022rgba(0,0,0,0.3)\\\u0022 text-anchor=\\\u0022middle\\\u0022>N<\\/tspan>\\n            <\\/text>\\n        <\\/svg>\\n    <\\/div>\\n\u0022,\u0022type\u0022:\u0022user\u0022}',
+customOptions: {
+disableChat: false,
+disableUserVendorNotifications: false,
+isChatbotEnabled: true,
+openOnLoad: false,
+canInitConversation: true,
+isPersistentStorageEnabled: true,
+disableAppChat: false              }
+};
+</script> -->
   </body>
 </html>
