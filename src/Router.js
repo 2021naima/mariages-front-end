@@ -19,6 +19,7 @@ import Landing from "./pages/LandingPage";
 import Navbar from "./components/Navbar";
 import Accueil from "./pages/Accueil";
 import DashboardNav from "./components/DashboardNav";
+import Vendor from "./pages/VendorCategorie";
 
 function Router() {
   return (
@@ -45,6 +46,8 @@ function Router() {
           <Route path="/Inscription" element={<Inscription />} />
           <Route path="/Landing" element={<Landing />} />
           <Route path="/navbar" element={<Navbar />} />
+          <Route path="/vendor" element={<Vendor />} />
+          <Route path="/connexion" element={<Login />} />
         </Routes>
       </BrowserRouter>
 

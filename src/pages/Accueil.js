@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import DashboardNav from '../components/DashboardNav';
-import MonMariage from './MonMariage';
 import UserService from "../services/userService"
 import prestataireServices from "../services/prestataireService"
 
+
+// context API react js
 const API_URL = "http://localhost:5000/prestataire/";
 
 
@@ -13,17 +13,79 @@ const Accueil= () => {
     const [user, setUser]=useState();
     const [mariage, setMariage]=useState();
     const [date, setDate]=useState();
-    const [prestataires, setPrestataires]=useState([]);
+    // const [prestataires, setPrestataires]=useState([]);
+  
 
+    const prestataires = [{
+      "categorie":"vidéo",
+      "nom":"Alister",
+      "prix":"",
+      "tel":"06778884",
+      "ville":"Rabat"
+    },
+    {
+      "categorie":"negafa",
+      "nom":"Safir",
+      "prix":"3000",
+      "tel":"0678994411",
+      "ville":"Agadir"
+    },
+    {
+      "categorie":"Réception",
+      "nom":"villa Alpha",
+      "prix":"3000",
+      "tel":"067454876",
+      "ville":"agadir"
+    }
+  ]
+
+
+
+  const invites = [
+ 
+    {
+    "id":"5",
+    "nom":"Naima",
+    "prenom":"bourhym",
+    "tel":"06778884",
+    "groupe":"famille",
+    "age":"adulte",
+  },
+  {
+    "id":"2",
+    "nom":"Asmae",
+    "prenom":"idrissi",
+    "tel":"06778544",
+    "groupe":"famille",
+    "age":"adulte",
+  },
+  {
+    "id":"3",
+    "nom":"fatima",
+    "prenom":"bennani",
+    "tel":"057867898",
+    "groupe":"amies",
+    "age":"adulte",
+  },
+  {
+    "id":"4",
+    "nom":"imane",
+    "prenom":"bennani",
+    "tel":"05786787",
+    "groupe":"famille",
+    "age":"adulte",
+    "présence":"annulé"
+  },
+]
     useEffect(() => {
         const id="62e94c576c9da74e55a77dcf"
-        UserService.getUser(id);
+        // UserService.getUser(id);
         // const prests=prestataireServices.getPrestataires(id);
         axios.get(API_URL+id)
         .then((response) => {
         localStorage.setItem("userPrestataires", JSON.stringify(response.data));
-        console.log( JSON.stringify(response.data)) ;
-        setPrestataires(JSON.stringify(response.data))
+      console.log( JSON.stringify(response.data)) ;
+        prestataires=response.data
 
       })
        
@@ -36,8 +98,9 @@ const Accueil= () => {
 
     return (
                 <div>
+                
                   <a className="layoutSkipMain" href="#layoutMain">Aller au contenu principal</a>
-                 
+                  
           
                   <main id="layoutMain">
                     
@@ -97,13 +160,13 @@ const Accueil= () => {
                                   </li>
                                 </ul>
                                 <p className="dash-couple-names">
-                                  <span className="app-owner-name"> {JSON.parse(localStorage.getItem("user")).nom}</span>
+                                  <span className="app-owner-name"> </span>
                                 </p>
                                 <div className="dash-couple-personal">
                                   <div className="dash-couple-personal-date">
-                                    <p className="dash-couple-subtitle"><span>{localStorage.getItem("date")}</span></p>
+                                    <p className="dash-couple-subtitle"><span></span></p>
                                     
-                                    <p className="dash-couple-subtitle"><span>{prestataires}</span></p>
+                                    <p className="dash-couple-subtitle"><span></span></p>
                                   </div>
                                 </div>
                               </div>
@@ -155,17 +218,18 @@ const Accueil= () => {
                             <div className="wizardSlider__upperWrapper">
                               <div className="wizardSlider__imagesWrapper app-wizard-images-wrapper">
                                 <img className="wizardSlider__gridThumb wizardSlider__gridThumb-detailed wizardSlider__gridThumb-smallImage    wizardSlider__gridThumb-vertical" width={560} height={704} src="https://cdn1.mariages.net/assets/img/wedsites/thumb/fr/glam_deco_lg.jpg" srcSet="https://cdn1.mariages.net/assets/img/wedsites/thumb/fr/glam_deco_lg.jpg 1x, https://cdn1.mariages.net/assets/img/wedsites/thumb/fr/glam_deco_lg@2x.jpg 2x" />
-                                <img className="wizardSlider__gridThumbMobile wizardSlider__gridThumbMobile-detailed wizardSlider__gridThumbMobile-smallImage        wizardSlider__gridThumbMobile-vertical" width={150} height={325} src="https://cdn1.mariages.net/assets/img/wedsites/thumb_mobile/fr/glam_deco@2x.jpg" srcSet="https://cdn1.mariages.net/assets/img/wedsites/thumb_mobile/fr/glam_deco@2x.jpg 1x, https://cdn1.mariages.net/assets/img/wedsites/thumb_mobile/fr/glam_deco@2x.jpg 2x" />
+                                <img className="wizardSlider__gridThumbMobile wizardSlider__gridThumbMobile-detailed wizardSlider__gridThumbMobile-smallImage wizardSlider__gridThumbMobile-vertical" width={150} height={325} src="https://cdn1.mariages.net/assets/img/wedsites/thumb_mobile/fr/glam_deco@2x.jpg" srcSet="https://cdn1.mariages.net/assets/img/wedsites/thumb_mobile/fr/glam_deco@2x.jpg 1x, https://cdn1.mariages.net/assets/img/wedsites/thumb_mobile/fr/glam_deco@2x.jpg 2x" />
                               </div>
                             </div>
                           </div>
                         </a>
+                        </div>
                         <div className="dashTemplates__body">
                           <p className="dashTemplates__title">Vos invités sont impatients de découvrir votre site de mariage.</p>
                           <p className="dashTemplates__description">Ajoutez tous les détails du grand jour, partagez votre lieu de réception et indiquez le lien de votre liste de mariage !</p>
+                          <a href="https://www.mariages.net/tools/website-wizard?actionReferrer=203" className="dashTemplates__action btnFlat btnFlat--primary">Personnaliser</a>
                         </div>
-                        <a href="https://www.mariages.net/tools/website-wizard?actionReferrer=203" className="dashTemplates__action btnFlat btnFlat--primary">Personnaliser</a>
-                      </div>
+                      
                       <div className="fleft">
                         <h2 className="dash-title dash-title--m0">
                           Mes prestataires  </h2>
@@ -195,6 +259,10 @@ const Accueil= () => {
                         </form>
                       </div>
                       <div className="app-slider-container dashVendors pure-g row dashVendors--searcher">
+                       
+                      
+                      { prestataires && prestataires.map(pres => 
+                      
                         <div className="pure-u-1-5">
                           <div className="app-ua-track-event app-link" data-href="/tools/VendorsCateg?id_categ=163" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-videography" data-track-v={0} data-track-ni={0}>
                             <div className="dashVendors__item">
@@ -204,68 +272,20 @@ const Accueil= () => {
                                   <i className="svgIcon svgIcon__plus mr5"><svg viewBox="0 0 16 16"><path d="M9 7h6a1 1 0 110 2H9v6a1 1 0 11-2 0V9H1a1 1 0 010-2h6V1a1 1 0 012 0v6z" fillRule="nonzero" /></svg></i>                            Ajouter                      </span>
                               </figure>
                             </div>
-                            <p className="dashVendors__itemCateg text-center" data-href="/tools/VendorsCateg?id_categ=163">Vidéo</p>
+                            <p className="dashVendors__itemCateg text-center" data-href="/tools/VendorsCateg?id_categ=163">{pres.categorie}</p>
                           </div>
                         </div>
-                        <div className="pure-u-1-5">
-                          <div className="app-ua-track-event app-link" data-href="/tools/VendorsCateg?id_categ=23" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-bride" data-track-v={0} data-track-ni={0}>
-                            <div className="dashVendors__item">
-                              <figure className="dashVendors__item-figure dashVendors__item-figure-empty">
-                                <i className="svgIcon svgIcon__categBride dashVendors__itemIcon"><svg viewBox="0 0 49 54"><path d="M39 36.064a22.418 22.418 0 00-1.352-1.036 25.587 25.587 0 01-4.901 2.73c-7.223 2.846-15.282 1.765-21.485-2.655C5.857 38.972 2.337 45.147 2.022 52H39V36.064zm2 1.875V52h5.977c-.243-5.372-2.439-10.309-5.977-14.06zm-5.184-4.079a22.689 22.689 0 00-4.337-1.908l.61-1.904c2.53.81 4.861 2.003 6.932 3.503V18.516c0-2.794-.28-4.741-1.106-6.936-3.02-7.783-11.733-11.591-19.403-8.516-5.65 2.31-9.368 7.869-9.512 13.933v17.314a24.27 24.27 0 017.99-4.265l.597 1.908a22.277 22.277 0 00-4.5 1.974c5.56 3.65 12.594 4.464 18.904 1.978a23.682 23.682 0 003.825-2.046zM7 36.113v-19.14C7.163 10.102 11.36 3.83 17.761 1.21c8.712-3.493 18.596.827 22.022 9.656.925 2.457 1.238 4.634 1.238 7.65v16.651C45.974 39.62 49 46.013 49 53v1H0v-1c0-6.493 2.64-12.498 7-16.887zM7 36h2v17H7V36zm30.145-10.979l.263.287v.389c0 .761-1.565 2.934-3.386 4.516C31.303 32.576 27.906 34 23.87 34c-3.648 0-6.813-1.244-9.47-3.308a16.936 16.936 0 01-2.396-2.264c-.409-.47-.688-.845-.84-1.074l-.856-1.3 1.54-.238c6.87-1.06 13.593-4.51 18.398-11.389l1.668-2.387.15 2.908c.175 3.37 2.11 6.83 5.081 10.073zm-6.707-7.535c-4.592 5.602-10.488 8.719-16.593 10a15.06 15.06 0 001.782 1.627C17.954 30.92 20.701 32 23.87 32c3.523 0 6.467-1.234 8.84-3.296a13.837 13.837 0 002.138-2.327 9.97 9.97 0 00.355-.526c-2.34-2.663-4.041-5.476-4.765-8.365z" fillRule="nonzero" /></svg></i>                        
-                                <span className="vendors-categBox-button app-icon-hover app-add-vendor-modal app-ua-track-event-multiple app-link" data-icon-old="icon-tools-plus" data-icon-new="icon-tools-plus-white" data-toolredirect="true" data-id-categ={23} data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-bride" data-track-v={0} data-track-ni={0}>
-                                  <i className="svgIcon svgIcon__plus mr5"><svg viewBox="0 0 16 16"><path d="M9 7h6a1 1 0 110 2H9v6a1 1 0 11-2 0V9H1a1 1 0 010-2h6V1a1 1 0 012 0v6z" fillRule="nonzero" /></svg></i>                            Ajouter                      </span>
-                              </figure>
-                            </div>
-                            <p className="dashVendors__itemCateg text-center" data-href="/tools/VendorsCateg?id_categ=23">Mariée et Accessoires</p>
-                          </div>
-                        </div>
-                        <div className="pure-u-1-5">
-                          <div className="app-ua-track-event app-link" data-href="/tools/VendorsCateg?id_categ=16" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-venue" data-track-v={0} data-track-ni={0}>
-                            <div className="dashVendors__item">
-                              <figure className="dashVendors__item-figure dashVendors__item-figure-empty">
-                                <i className="svgIcon svgIcon__categReception dashVendors__itemIcon"><svg viewBox="0 0 54 41"><path d="M4 19.421l-2.401 1.795A1 1 0 01.4 19.614L25.868.584a1 1 0 01.751-.324 1 1 0 01.751.324l25.467 19.03a1 1 0 01-1.198 1.602L48 18.496V41H4V19.421zm2-1.494V39h12V21h16v18h12V17.002L26.619 2.519 6 17.927zM32 39V23H20v16h12z" fillRule="nonzero" /></svg></i>                        
-                                <span className="vendors-categBox-button app-icon-hover app-add-vendor-modal app-ua-track-event-multiple app-link" data-icon-old="icon-tools-plus" data-icon-new="icon-tools-plus-white" data-toolredirect="true" data-id-categ={16} data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-venue" data-track-v={0} data-track-ni={0}>
-                                  <i className="svgIcon svgIcon__plus mr5"><svg viewBox="0 0 16 16"><path d="M9 7h6a1 1 0 110 2H9v6a1 1 0 11-2 0V9H1a1 1 0 010-2h6V1a1 1 0 012 0v6z" fillRule="nonzero" /></svg></i>                            Ajouter                      </span>
-                              </figure>
-                            </div>
-                            <p className="dashVendors__itemCateg text-center" data-href="/tools/VendorsCateg?id_categ=16">Réception</p>
-                          </div>
-                        </div>
-                        <div className="pure-u-1-5">
-                          <div className="app-ua-track-event app-link" data-href="/tools/VendorsCateg?id_categ=27" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-caterer" data-track-v={0} data-track-ni={0}>
-                            <div className="dashVendors__item">
-                              <figure className="dashVendors__item-figure dashVendors__item-figure-empty">
-                                <i className="svgIcon svgIcon__categCatering dashVendors__itemIcon"><svg viewBox="0 0 50 33"><path d="M39.678 28.996v-.004c-.216.01-.431.01-.647.003V29H.995L1 27.995c.063-11.97 8.762-21.843 20.165-23.686A2.796 2.796 0 0121 3.374C21 1.476 22.864 0 25 0s4 1.476 4 3.374c0 .308-.054.614-.155.907a24.195 24.195 0 0117.82 12.85 10.076 10.076 0 012.385-.102l.856.065.065.856a10.398 10.398 0 01-1.366 5.945c.258 1.483.395 2.82.395 4.105v1H39.678v-.004zm5.008-11.331A22.181 22.181 0 0025.156 6C13.29 5.936 3.611 15.238 3.028 27H33.96a8.646 8.646 0 01-.497-.459c-1.784-1.783-2.66-4.2-2.426-6.606l.08-.82.82-.079c2.411-.23 4.831.642 6.63 2.437.271.284.522.583.75.896a10.06 10.06 0 011.743-2.368 10.614 10.614 0 013.626-2.336zM46.9 26.13a9.93 9.93 0 01-1.019.869h1.09c-.017-.284-.04-.573-.07-.869zM25.054 4h1.69c.163-.2.256-.429.256-.626C27 2.696 26.12 2 25 2s-2 .696-2 1.374c0 .197.093.426.257.626h1.797zm9.823 21.127c1.135 1.133 2.597 1.781 4.104 1.864a6.713 6.713 0 00-1.843-4.118c-1.141-1.14-2.614-1.788-4.13-1.865.077 1.51.727 2.978 1.87 4.119zm7.592-3.707a7.97 7.97 0 00-1.929 3.183c.27.722.42 1.483.465 2.3 1.749-.26 3.346-1.038 4.582-2.286 1.491-1.554 2.334-3.57 2.408-5.612-2.033.073-3.985.91-5.526 2.415zM0 33v-2h50v2H0z" fillRule="nonzero" /></svg></i>                        
-                                <span className="vendors-categBox-button app-icon-hover app-add-vendor-modal app-ua-track-event-multiple app-link" data-icon-old="icon-tools-plus" data-icon-new="icon-tools-plus-white" data-toolredirect="true" data-id-categ={27} data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-caterer" data-track-v={0} data-track-ni={0}>
-                                  <i className="svgIcon svgIcon__plus mr5"><svg viewBox="0 0 16 16"><path d="M9 7h6a1 1 0 110 2H9v6a1 1 0 11-2 0V9H1a1 1 0 010-2h6V1a1 1 0 012 0v6z" fillRule="nonzero" /></svg></i>                            Ajouter                      </span>
-                              </figure>
-                            </div>
-                            <p className="dashVendors__itemCateg text-center" data-href="/tools/VendorsCateg?id_categ=27">Traiteur</p>
-                          </div>
-                        </div>
-                        <div className="pure-u-1-5">
-                          <div className="app-ua-track-event app-link" data-href="/tools/VendorsCateg?id_categ=21" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-photographer_video" data-track-v={0} data-track-ni={0}>
-                            <div className="dashVendors__item">
-                              <figure className="dashVendors__item-figure dashVendors__item-figure-empty">
-                                <i className="svgIcon svgIcon__categPhoto dashVendors__itemIcon"><svg viewBox="0 0 54 40"><path d="M14.628 17.998H2V37.47c0 .303.236.53.592.53h48.816c.356 0 .592-.227.592-.53V17.998H39.372A12.99 12.99 0 0140 22c0 7.18-5.82 13-13 13s-13-5.82-13-13c0-1.397.22-2.742.628-4.002zm.838-2A12.999 12.999 0 0127 9c5.015 0 9.366 2.84 11.534 6.998H52V6.53c0-.303-.236-.53-.592-.53H2.592C2.236 6 2 6.227 2 6.53v9.468zM7 4V2.292C7 1.02 8.06 0 9.344 0h6.312C16.94 0 18 1.02 18 2.292V4h33.408C52.85 4 54 5.104 54 6.53v30.94c0 1.426-1.149 2.53-2.592 2.53H2.592C1.15 40 0 38.896 0 37.47V6.53C0 5.104 1.149 4 2.592 4zm2 0h7V2.292c0-.15-.148-.292-.344-.292H9.344C9.148 2 9 2.142 9 2.292zm31 10a1 1 0 01-1-1V9.032a1 1 0 011-1h8a1 1 0 011 1V13a1 1 0 01-1 1zm7-2v-1.968h-6V12zm-20-1c-6.075 0-11 4.925-11 11s4.925 11 11 11 11-4.925 11-11-4.925-11-11-11zm.029 4c3.88 0 7.029 3.133 7.029 7 0 3.868-3.148 7-7.03 7C23.149 29 20 25.868 20 22c0-3.867 3.148-7 7.029-7zm0 2C24.25 17 22 19.24 22 22s2.25 5 5.029 5c2.778 0 5.029-2.24 5.029-5s-2.25-5-5.03-5z" /></svg></i>                        
-                                <span className="vendors-categBox-button app-icon-hover app-add-vendor-modal app-ua-track-event-multiple app-link" data-icon-old="icon-tools-plus" data-icon-new="icon-tools-plus-white" data-toolredirect="true" data-id-categ={21} data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-vendor+dt-photographer_video" data-track-v={0} data-track-ni={0}>
-                                  <i className="svgIcon svgIcon__plus mr5"><svg viewBox="0 0 16 16"><path d="M9 7h6a1 1 0 110 2H9v6a1 1 0 11-2 0V9H1a1 1 0 010-2h6V1a1 1 0 012 0v6z" fillRule="nonzero" /></svg></i>                            Ajouter                      </span>
-                              </figure>
-                            </div>
-                            <p className="dashVendors__itemCateg text-center" data-href="/tools/VendorsCateg?id_categ=21">Photo</p>
-                          </div>
-                        </div>
+                        
+                    
+                         )} 
+                      
                       </div>
 
 
 
-                      <div>
-                      {prestataires && prestataires.map((pres) => (
-                      <li  >{pres.nom}</li>
-      ))} 
-                      </div>
+                     
                       <div className="text-right mb20">
-                        <a className="link--primary" data-icon-old="icon-arrow-right-red" href="https://www.mariages.net/tools/Vendors">
+                        <a className="link--primary" data-icon-old="icon-arrow-right-red" href="/PrestatairesDash">
                           Voir tous mes prestataires<i className="icon icon-arrow-right-red icon-right" />
                         </a>
                       </div>
@@ -347,21 +367,25 @@ const Accueil= () => {
                                 <div className="unit">
                                   <p className="dash-title">Mes invités</p>
                                   <div className="dash-box app-link" data-href="/tools/Guests">
-                                    <p className="dash-subtitle pt10 pb15 text-center border-bottom">1 invité en attente de confirmation</p>
+                                    <p className="dash-subtitle pt10 pb15 text-center border-bottom">{invites.length} invité </p>
                                     <ul className="dashGuests">
+                                    { invites && invites.map(invite => 
                                       <li className="dashGuests__item app-link pure-g" data-href="/tools/Guests?view=2&idContact=55637073">
                                         <div className="pure-u-1-7">
                                           <div className="dashGuests__avatar"><span className="icon-tools icon-tools-adult" /></div>
                                         </div>
                                         <div className="pure-u-6-7 pl10">
-                                          <p className="dashGuests__name">etr</p>
+                                        
+               
+                                          <p className="dashGuests__name">{invite.nom} {invite.prenom} </p>
                                           <p className="dashGuests__group" />
                                         </div>
                                       </li>
+                                      )} 
                                     </ul>
                                   </div>
                                   <div className="text-right mt20 mr10">
-                                    <a href="/tools/Guests" className="link--primary app-ua-track-event" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-dashboard+dt-guestlist" data-track-v={0} data-track-ni={0}>
+                                    <a href="/Invites" className="link--primary app-ua-track-event" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-dashboard+dt-guestlist" data-track-v={0} data-track-ni={0}>
                                       Voir liste des invités <i className="icon-right icon icon-arrow-right-red" />
                                     </a>
                                   </div>
@@ -370,7 +394,7 @@ const Accueil= () => {
                               <div className="pure-u-1-2">
                                 <div className="unit">
                                   <p className="dash-title">Mon budget</p>
-                                  <div className="dash-box app-link" data-href="/tools/Budget">
+                                  <div className="dash-box app-link" data-href="/Budget">
                                     <div className="dashBudget">
                                       <div className="pure-g mb10">
                                         <div className="pure-u-1-2">
@@ -394,7 +418,7 @@ const Accueil= () => {
                                   </div>
                                 </div>
                                 <div className="text-right mt20 mr10">
-                                  <a href="/tools/Budget" className="link--primary app-ua-track-event" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-dashboard+dt-budget_all" data-track-v={0} data-track-ni={0}>
+                                  <a href="/Budget" className="link--primary app-ua-track-event" data-track-c="NavigationAuth" data-track-a="a-click" data-track-l="d-desktop+o-home_tools+s-dashboard+dt-budget_all" data-track-v={0} data-track-ni={0}>
                                     Voir mon budget <i className="icon-right icon icon-arrow-right-red" />
                                   </a>
                                 </div>
@@ -803,7 +827,9 @@ const Accueil= () => {
                         </div>
                       </div>
                     </div>
+
                   </main>
+                  
                   <div className="white pt5 mt25">
                     <div className="footer-info">
                       <div className="wrapper">

@@ -1,6 +1,63 @@
 import React, { useState, useEffect } from 'react';
 
 function Invites() {
+
+  
+
+  const invites = [
+    {
+      "id":"5",
+      "nom":"maryame",
+      "prenom":"bourhym",
+      "tel":"06778884",
+      "groupe":"mariée",
+      "menu":"adulte",
+    },
+    {
+      "id":"6",
+      "nom":"ma moitié",
+      "prenom":"marie",
+      "tel":"06778884",
+      "groupe":"Mamoitié",
+      "menu":"adulte",
+    },
+    {
+    "id":"1",
+    "nom":"Naima",
+    "prenom":"bourhym",
+    "tel":"06778884",
+    "groupe":"famille",
+    "menu":"adulte",
+    "presence":"confirmé",
+  },
+  {
+    "id":"2",
+    "nom":"Asmae",
+    "prenom":"idrissi",
+    "tel":"06778544",
+    "groupe":"famille",
+    "presence":"confirmé",
+    "menu":"en attente",
+  },
+  {
+    "id":"3",
+    "nom":"fatima",
+    "prenom":"bennani",
+    "tel":"057867898",
+    "groupe":"amis",
+    "menu":"adulte",
+    "presence":"confirmé"
+  },
+  {
+    "id":"4",
+    "nom":"imane",
+    "prenom":"bennani",
+    "tel":"05786787",
+    "groupe":"amis",
+    "menu":"adulte",
+    "presence":"confirmé"
+  },
+]
     return (
                 <div>
                   <a className="layoutSkipMain" href="#layoutMain">Aller au contenu principal</a>
@@ -370,6 +427,8 @@ function Invites() {
                                   </tr>
                                 </thead>
                                 <tbody>
+                                { invites && invites.map(invite => 
+                                   invite.groupe=="amis"?
                                   <tr className="app-contact-row guests-rows-item" data-contact-id={55609045} data-event-id data-parent-contact-id={55609045} data-name="GGSDFG TUTUS">
                                     <td className="guests-rows-td guests-rows-noBorder" width="3%">
                                       <div className="guests-rows-td-checkbox input-group-line inline">
@@ -379,18 +438,19 @@ function Invites() {
                                         </label>
                                       </div>
                                     </td>
+                                   
                                     <td className="guests-rows-td guests-rows-name pointer app-contact-change-view-contact" data-idcontact={55609045}>
                                       <span className="icon-tools icon-tools-woman" />        <span className="app-contact-grid-name pointer pl5">
-                                        GGSDFG TUTUS      </span>
+                                      {invite.nom} {invite.prenom}     </span>
                                     </td>
                                     <td className="guests-rows-td">
                                       <div className="app-input-select input-select app-guest-update select-attendance guests-rows-select" data-eager="true" data-type="confirmacion" data-event>
-                                        <span className="app-input-label input-select-label input-filled"><i className="icon-tools icon-tools-times-red mr10" />Annulé</span>
+                                        <span className="app-input-label input-select-label input-filled"><i className="" />{invite.presence} </span>
                                         <span className="app-input-no-value-label dnone">Sélectionner</span>
                                         <div className="app-input-dropdown input-select-dropdown">
                                           <ul>
                                             <li className="input-select-dropdown__title app-input-select-label ">
-                                              <i className="icon-tools icon-tools-times-red mr10" />Annulé              </li>
+                                              <i className="icon-tools icon-tools-times-red mr10" /></li>
                                             <li data-value={0}>
                                               <i className="icon-tools icon-tools-clock-orange mr10" />En attente              </li>
                                             <li data-value={1}>
@@ -402,10 +462,10 @@ function Invites() {
                                       </div>
                                     </td>
                                     <td className="guests-rows-td">
-                                      <span className="app-guest-canceled">Annulé</span>
+                                      <span className="app-guest-canceled">{invite.age}</span>
                                     </td>
                                     <td className="guests-rows-td">
-                                      <span className="app-guest-canceled">Annulé</span>
+                                      <span className="app-guest-canceled">{invite.table}</span>
                                     </td>
                                     <td className="guests-rows-td guests-rows-more" align="right">
                                       <div className="app-toogle-layer pointer icon icon-mail-letter-grey mr15 relative inline-block" data-selector="app-dropdown-messages-55609045">
@@ -427,7 +487,10 @@ function Invites() {
                                         </div>
                                       </div>
                                     </td>
+                                   
                                   </tr>
+                                   : null
+                                )}
                                   <tr className="app-row-no-items" style={{display: 'none'}}>
                                     <td width="3%" />
                                     <td className="guests-rows-empty" colSpan={5}>
@@ -451,6 +514,8 @@ function Invites() {
                                   </tr>
                                 </thead>
                                 <tbody>
+                                { invites && invites.map(invite => 
+                                   invite.groupe==""?
                                   <tr className="app-contact-row guests-rows-item" data-contact-id={55637073} data-event-id data-parent-contact-id={55637073} data-name="etr ">
                                     <td className="guests-rows-td guests-rows-noBorder" width="3%">
                                       <div className="guests-rows-td-checkbox input-group-line inline">
@@ -462,7 +527,7 @@ function Invites() {
                                     </td>
                                     <td className="guests-rows-td guests-rows-name pointer app-contact-change-view-contact" data-idcontact={55637073}>
                                       <span className="icon-tools icon-tools-adult" />        <span className="app-contact-grid-name pointer pl5">
-                                        etr       </span>
+                                      {invite.nom} {invite.prenom}    </span>
                                     </td>
                                     <td className="guests-rows-td">
                                       <div className="app-input-select input-select app-guest-update select-attendance guests-rows-select" data-eager="true" data-type="confirmacion" data-event>
@@ -471,7 +536,7 @@ function Invites() {
                                         <div className="app-input-dropdown input-select-dropdown">
                                           <ul>
                                             <li className="input-select-dropdown__title app-input-select-label ">
-                                              <i className="icon-tools icon-tools-clock-orange mr10" />En attente              </li>
+                                              <i className="icon-tools icon-tools-clock-orange mr10" />{invite.presence}             </li>
                                             <li data-value={0} data-default style={{display: 'none'}}>
                                               <i className="icon-tools icon-tools-clock-orange mr10" />En attente              </li>
                                             <li data-value={1}>
@@ -485,7 +550,7 @@ function Invites() {
                                     <td className="guests-rows-td">
                                       <span className="app-guest-canceled" style={{display: 'none'}}>Annulé</span>
                                       <div className="app-input-select input-select app-guest-update guests-rows-select" data-eager="true" data-type="menus">
-                                        <span className="app-input-label input-select-label input-filled">Adultes</span>
+                                        <span className="app-input-label input-select-label input-filled">{invite.menu}</span>
                                         <span className="app-input-no-value-label dnone">Sélectionner</span>
                                         <div className="app-input-dropdown input-select-dropdown">
                                           <ul>
@@ -509,7 +574,7 @@ function Invites() {
                                         <div className="app-input-dropdown input-select-dropdown">
                                           <ul>
                                             <li data-value="table1">
-                                              Table d'Honneur (4)              </li>
+                                             {invite.table}             </li>
                                             <li className="app-link guests-rows-select-add" data-href="https://www.mariages.net/tools/Tables" data-action>
                                               <i className="icon-tools icon-tools-plus-circle-medium icon-left" />Créer table              </li>
                                           </ul>
@@ -529,12 +594,15 @@ function Invites() {
                                       </div>
                                     </td>
                                   </tr>
+                                     : null
+                                     )}
                                   <tr className="app-row-no-items" style={{display: 'none'}}>
                                     <td width="3%" />
                                     <td className="guests-rows-empty" colSpan={5}>
                                       <span>Aucun invité</span>
                                     </td>
                                   </tr>
+                               
                                 </tbody>
                               </table>
                               <table className="app-guest-row-group guests-rows-group">
